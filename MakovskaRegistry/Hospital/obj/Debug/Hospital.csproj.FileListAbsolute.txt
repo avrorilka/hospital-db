@@ -1,0 +1,16 @@
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\Hospital.exe.config
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\Hospital.exe
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\Hospital.pdb
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.csprojAssemblyReference.cache
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.HospitalForm.resources
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.Properties.Resources.resources
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.csproj.GenerateResource.cache
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.exe
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.pdb
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\hospital.db
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\RegistryLib.dll
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\System.Data.SQLite.dll
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\bin\Debug\RegistryLib.pdb
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.csproj.CopyComplete
+C:\Users\Olga\Desktop\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.DetailedPatient.resources

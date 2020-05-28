@@ -1,0 +1,11 @@
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.deps.json
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.dll
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.pdb
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Data.SQLite.dll
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csprojAssemblyReference.cache
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.AssemblyInfoInputs.cache
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.AssemblyInfo.cs
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CopyComplete
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.dll
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.pdb
+C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CoreCompileInputs.cache
