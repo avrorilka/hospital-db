@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E2IpKof9avAexiowBl5MxWkggP3174LB0PJMjlo8MsUX1Ravj4bJ1Md74AaGaD+p/9T1CRskTPMJE/uNfpcQeQ==",
+  "dgSpecHash": "Jh/U8QaXi4AVF04kVxqHwTFk+ZP8HlTA83mUTbyy+GtTRd8kRnvFc6SlpA9gygJGlf5HttZEFtE9SthE6bhveg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Olga\\Desktop\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
+  "projectFilePath": "D:\\stud\\1\\coursework\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

@@ -9,3 +9,14 @@ C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\Regi
 C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.dll
 C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.pdb
 C:\Users\Olga\Desktop\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CoreCompileInputs.cache
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.deps.json
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\RegistryLib.pdb
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Data.SQLite.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csprojAssemblyReference.cache
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CoreCompileInputs.cache
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.AssemblyInfoInputs.cache
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.AssemblyInfo.cs
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CopyComplete
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.pdb

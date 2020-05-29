@@ -186,11 +186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Olga\\Desktop\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
+      "projectUniqueName": "D:\\stud\\1\\coursework\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
       "projectName": "RegistryLib",
-      "projectPath": "C:\\Users\\Olga\\Desktop\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
+      "projectPath": "D:\\stud\\1\\coursework\\MakovskaRegistry\\RegistryLib\\RegistryLib.csproj",
       "packagesPath": "C:\\Users\\Olga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Olga\\Desktop\\MakovskaRegistry\\RegistryLib\\obj\\",
+      "outputPath": "D:\\stud\\1\\coursework\\MakovskaRegistry\\RegistryLib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Text;
 
 namespace RegistryLib
@@ -13,8 +15,25 @@ namespace RegistryLib
 		public string birth_date { get; set; }
 		public string phone_number { get; set; }
 		public string address { get; set; }
-		public int status_id { get; set; }
+		public Status status;
+		public List<Privileged_group> groupList;
 
+
+		public Patient() { }
+		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
+					   string Birth_date, string Phone_number, string Address, int Status_id, 
+					   List<Privileged_group> GroupList)
+		{
+			this.card_number = Card_number;
+			this.first_name = First_name;
+			this.surname = Surname;
+			this.midlle_name = Midlle_name;
+			this.birth_date = Birth_date;
+			this.phone_number = Phone_number;
+			this.address = Address;
+			status = new Status(Status_id);
+			groupList = GroupList;
+		}
 		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
 					   string Birth_date, string Phone_number, string Address, int Status_id)
 		{
@@ -25,7 +44,20 @@ namespace RegistryLib
 			this.birth_date = Birth_date;
 			this.phone_number = Phone_number;
 			this.address = Address;
-			this.status_id = Status_id;
+			status = new Status(Status_id);
+		}
+		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
+					   string Birth_date, string Phone_number, string Address, 
+					   List<Privileged_group> GroupList)
+		{
+			this.card_number = Card_number;
+			this.first_name = First_name;
+			this.surname = Surname;
+			this.midlle_name = Midlle_name;
+			this.birth_date = Birth_date;
+			this.phone_number = Phone_number;
+			this.address = Address;
+			groupList = GroupList;
 		}
 		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
 					   string Birth_date, string Phone_number, string Address)
@@ -38,26 +70,70 @@ namespace RegistryLib
 			this.phone_number = Phone_number;
 			this.address = Address;
 		}
-		public Patient(int Card_number, string First_name, string Surname,
-					   string Birth_date, string Phone_number, string Address, int Status_id)
+
+
+		public static DataTable AllMembersTable()
 		{
-			this.card_number = Card_number;
-			this.first_name = First_name;
-			this.surname = Surname;
-			this.birth_date = Birth_date;
-			this.phone_number = Phone_number;
-			this.address = Address;
-			this.status_id = Status_id;
+			readerData = AllMembers("Select * From Patient");
+			DataTable table = new DataTable();
+
+			table.Columns.Add("№ картки");
+			table.Columns.Add("Ім'я");
+			table.Columns.Add("Прізвище");
+			table.Columns.Add("Дата народження");
+
+			while (readerData.Read())
+			{
+				table.Rows.Add(readerData[0], readerData[1], readerData[2], readerData[4]);
+			}
+
+			return table;
 		}
-		public Patient(int Card_number, string First_name, string Surname,
-					   string Birth_date, string Phone_number, string Address)
+
+		public void InsertNewPatient(Patient patient)
 		{
-			this.card_number = Card_number;
-			this.first_name = First_name;
-			this.surname = Surname;
-			this.birth_date = Birth_date;
-			this.phone_number = Phone_number;
-			this.address = Address;
+			SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, phone_number, address) " +
+														"VALUES(?,?,?,?,?,?)");
+			insertSQL.Parameters.Add(patient.first_name);
+			insertSQL.Parameters.Add(patient.surname);
+			insertSQL.Parameters.Add(patient.midlle_name);
+			insertSQL.Parameters.Add(patient.birth_date);
+			insertSQL.Parameters.Add(patient.phone_number);
+			insertSQL.Parameters.Add(patient.address);
+	
+			insertSQL.ExecuteNonQuery();
+		
 		}
+		public static void DeletePatient(int card_number)
+		{
+			EditMember($"DELETE FROM Patient " +
+					   $"WHERE card_number = {card_number};");
+		}
+
+		public static Patient ConvertPatient(int card_number)
+		{
+			Patient patient;
+			readerData = AllMembers($"SELECT * From Patient WHERE card_number = {card_number}");
+			while (readerData.Read())
+			{
+				patient = new Patient(Convert.ToInt32(readerData[0]), Convert.ToString(readerData[1]),
+									  Convert.ToString(readerData[2]), Convert.ToString(readerData[3]),
+									  Convert.ToString(readerData[4]), Convert.ToString(readerData[5]),
+									  Convert.ToString(readerData[6]), Convert.ToInt32(readerData[7]));
+				return patient;
+			}
+			Patient NEW = new Patient();
+			return NEW;
+		}
+		public static void EditPatient(Patient patient)
+		{
+			EditMember($"UPDATE Patient SET first_name = \"{patient.first_name}\", surname = \"{patient.surname}\", " +
+							$"midlle_name = \"{patient.midlle_name}\", birth_date = \"{patient.birth_date}\", " +
+							$"phone_number = \"{patient.phone_number}\", address = \"{patient.address}\", " +
+							$"status_id = {patient.status.id} " +
+						$"WHERE card_number = {patient.card_number}"); 
+		}
+
+		
 	}
 }
