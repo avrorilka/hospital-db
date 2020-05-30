@@ -46,5 +46,13 @@ namespace Hospital
         {
             FillDataGrid();
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            int index = comboBoxSearch.SelectedIndex;
+            string text = textBoxSearch.Text;
+            DataTable table = Patient.SearchPatient(index, text);
+            dataGridViewPatients.DataSource = table;
+        }
     }
 }

@@ -129,6 +129,7 @@
             this.buttonSearch.TabIndex = 9;
             this.buttonSearch.Text = "->";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonAddPatient
             // 

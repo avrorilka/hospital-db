@@ -72,9 +72,8 @@ namespace RegistryLib
 		}
 
 
-		public static DataTable AllMembersTable()
+		public static DataTable CreateTable(SQLiteDataReader readerData)
 		{
-			readerData = AllMembers("Select * From Patient");
 			DataTable table = new DataTable();
 
 			table.Columns.Add("№ картки");
@@ -90,6 +89,13 @@ namespace RegistryLib
 			return table;
 		}
 
+		public static DataTable AllMembersTable()
+		{
+			readerData = AllMembers("Select * From Patient");
+			DataTable table = CreateTable(readerData);
+			return table;
+		}
+		
 		public void InsertNewPatient(Patient patient)
 		{
 			SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, phone_number, address) " +
@@ -134,6 +140,46 @@ namespace RegistryLib
 						$"WHERE card_number = {patient.card_number}"); 
 		}
 
-		
+		public static DataTable SearchPatient(int index, string text)
+		{
+			text = text.Trim();
+			DataTable table = new DataTable();
+			switch (index)
+			{
+				case 0: 
+					{
+						readerData = AllMembers("Select * From Patient " +
+							  $"WHERE card_number = \"{text}\"");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 1: 
+					{
+						readerData = AllMembers("Select * From Patient " +
+							  $"WHERE first_name = \"{text}\"");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 2: 
+					{
+						readerData = AllMembers("Select * From Patient " +
+								$"WHERE surname = \"{text}\"");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 3: 
+					{
+						readerData = AllMembers("Select * From Patient " +
+									$"WHERE birth_date = \"{text}\"");
+						table = CreateTable(readerData);
+
+						break;
+					}
+			}
+			return table;
+		}
 	}
 }
