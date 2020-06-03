@@ -18,5 +18,10 @@ namespace RegistryLib
 			this.timeStart = time_start;
 			this.timeEnd = time_end;
 		}
+		public Schedule(string time_start, string time_end)
+		{
+			this.timeStart = time_start;
+			this.timeEnd = time_end;
+		}
 	}
 }

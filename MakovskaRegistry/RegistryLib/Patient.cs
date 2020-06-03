@@ -155,18 +155,6 @@ namespace RegistryLib
 			this.Address = Address;
 			groupList = GroupList;
 		}
-		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
-					   string Birth_date, string Phone_number, string Address)
-		{
-			this.card_number = Card_number;
-			this.FirstName = First_name;
-			this.Surname = Surname;
-			this.MiddleName = Midlle_name;
-			this.BirthDate = Birth_date;
-			this.PhoneNumber = Phone_number;
-			this.Address = Address;
-		}
-
 
 
 		public static DataTable CreateTable(SQLiteDataReader readerData)
@@ -179,13 +167,10 @@ namespace RegistryLib
 			table.Columns.Add("Дата народження");
 
 			while (readerData.Read())
-			{
 				table.Rows.Add(readerData[0], readerData[1], readerData[2], readerData[4]);
-			}
 
 			return table;
 		}
-
 		public static DataTable AllMembersTable()
 		{
 			readerData = AllMembers("Select * From Patient");
@@ -232,9 +217,7 @@ namespace RegistryLib
 
 
 				if (readerData[7] != DBNull.Value)
-				{
 					statusId = Convert.ToInt32(readerData[7]);
-				}
 
 				Privileged_group.patientLists = new List<Privileged_group>();
 

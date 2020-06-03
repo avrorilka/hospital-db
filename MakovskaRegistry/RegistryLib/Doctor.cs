@@ -110,50 +110,69 @@ namespace RegistryLib
 					   $"WHERE id = {id};");
 		}
 
-		public static DataTable SearchDoctor(int index, string text)
+		public static void DetailedDoctor(int id)
 		{
-			text = text.Trim();
-			DataTable table = new DataTable();
-			switch (index)
-			{
-				case 0:
-					{
-						readerData = AllMembers(DoctorString() +
-									$"WHERE Doctor.first_name " +
-									$"LIKE '%{text}%'");
-						table = CreateTable(readerData);
-
-						break;
-					}
-				case 1:
-					{
-						readerData = AllMembers(DoctorString() +
-									$"WHERE Doctor.surname " +
-									$"LIKE '%{text}%'");
-						table = CreateTable(readerData);
-
-						break;
-					}
-				case 2:
-					{
-						readerData = AllMembers(DoctorString() +
-												"WHERE Cabinet.cabinet_number " +
-												$"LIKE '%{text}%'");
-						table = CreateTable(readerData);
-
-						break;
-					}
-				case 3:
-					{
-						readerData = AllMembers(DoctorString() +
-												"WHERE Type.name " +
-												$"LIKE '%{text}%'");
-						table = CreateTable(readerData);
-
-						break;
-					}
-			}
-			return table;
+			Patient patient;
+			readerData = AllMembers($"Select Doctor.id, Doctor.first_name, Doctor.surname, Doctor.middle_name, " +
+									$"Cabinet.cabinet_number, Type.name, Schedule.time_start, Schedule.time_end " +
+									$"From Doctor " +
+									$"LEFT OUTER JOIN " +
+									$"Cabinet ON Doctor.cabinet_id = Cabinet.type_id " +
+									$"LEFT OUTER JOIN " +
+									$"Type ON Cabinet.type_id = Type.id " +
+									$"LEFT OUTER JOIN " +
+									$"Schedule ON Schedule.doctor_id = Doctor.id " +
+									$"WHERE Doctor.id = {id}");
 		}
+
+
+			public static DataTable SearchDoctor(int index, string text)
+			{
+				text = text.Trim();
+				DataTable table = new DataTable();
+				switch (index)
+				{
+					case 0:
+						{
+							readerData = AllMembers(DoctorString() +
+										$"WHERE Doctor.first_name " +
+										$"LIKE '%{text}%'");
+							table = CreateTable(readerData);
+
+							break;
+						}
+					case 1:
+						{
+							readerData = AllMembers(DoctorString() +
+										$"WHERE Doctor.surname " +
+										$"LIKE '%{text}%'");
+							table = CreateTable(readerData);
+
+							break;
+						}
+					case 2:
+						{
+							readerData = AllMembers(DoctorString() +
+													"WHERE Cabinet.cabinet_number " +
+													$"LIKE '%{text}%'");
+							table = CreateTable(readerData);
+
+							break;
+						}
+					case 3:
+						{
+							readerData = AllMembers(DoctorString() +
+													"WHERE Type.name " +
+													$"LIKE '%{text}%'");
+							table = CreateTable(readerData);
+
+							break;
+						}
+				}
+				return table;
+			}
+
+
+
 	}
 }

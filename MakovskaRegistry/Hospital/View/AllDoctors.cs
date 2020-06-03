@@ -39,5 +39,6 @@ namespace Hospital.View
             DataTable table = Doctor.SearchDoctor(index, text);
             dataGridViewDoctors.DataSource = table;
         }
+
     }
 }
