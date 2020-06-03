@@ -25,13 +25,13 @@ namespace RegistryLib
         }
 
        public static SQLiteDataReader AllMembers(string statement)
-        {
+       {
             var connection = CreateConnection();
             var command = new SQLiteCommand(statement, connection);
 
             readerData = command.ExecuteReader();
             return readerData;
-        }
+       }
 
         public static void EditMember(string statement)
         {
@@ -40,6 +40,19 @@ namespace RegistryLib
             var command = new SQLiteCommand(statement, connection);
             Closer(readerData);
             command.ExecuteNonQuery();
+        }
+        public static int GetLastMemberId(string statement)
+        {
+            int id = 1;
+            var connection = CreateConnection();
+            var command = new SQLiteCommand(statement, connection);
+            readerData  = command.ExecuteReader();
+            while (readerData.Read())
+            {
+                id = Convert.ToInt32(readerData[0]);
+            }
+
+            return id;
         }
 
     }

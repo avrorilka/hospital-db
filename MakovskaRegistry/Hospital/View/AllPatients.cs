@@ -27,7 +27,6 @@ namespace Hospital
             DataTable table = Patient.AllMembersTable();
             dataGridViewPatients.DataSource = table;
         }
-      
 
         private void Details_Click(object sender, EventArgs e)
         {
@@ -53,6 +52,12 @@ namespace Hospital
             string text = textBoxSearch.Text;
             DataTable table = Patient.SearchPatient(index, text);
             dataGridViewPatients.DataSource = table;
+        }
+
+        private void buttonAddPatient_Click(object sender, EventArgs e)
+        {
+            AddPatient form = new AddPatient();
+            form.Show();
         }
     }
 }

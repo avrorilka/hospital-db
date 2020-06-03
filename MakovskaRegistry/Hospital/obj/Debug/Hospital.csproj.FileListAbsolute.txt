@@ -31,3 +31,4 @@ D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.csproj.CopyCom
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.exe
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.pdb
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.AllPatients.resources
+D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AddPatient.resources

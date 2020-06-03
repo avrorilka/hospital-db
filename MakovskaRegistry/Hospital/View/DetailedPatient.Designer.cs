@@ -50,12 +50,12 @@
             this.groupBoxFullName = new System.Windows.Forms.GroupBox();
             this.groupBoxGeneralData = new System.Windows.Forms.GroupBox();
             this.groupBoxMedInfo = new System.Windows.Forms.GroupBox();
-            this.labelStatus = new System.Windows.Forms.Label();
+            this.listBoxGroup = new System.Windows.Forms.ListBox();
+            this.buttonRemoveGroup = new System.Windows.Forms.Button();
+            this.buttonAddGroup = new System.Windows.Forms.Button();
             this.labelGroup = new System.Windows.Forms.Label();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.buttonAddGroup = new System.Windows.Forms.Button();
-            this.buttonRemoveGroup = new System.Windows.Forms.Button();
-            this.listBoxGroup = new System.Windows.Forms.ListBox();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.groupBoxFullName.SuspendLayout();
             this.groupBoxGeneralData.SuspendLayout();
             this.groupBoxMedInfo.SuspendLayout();
@@ -295,15 +295,42 @@
             this.groupBoxMedInfo.TabStop = false;
             this.groupBoxMedInfo.Text = "Медична інформація";
             // 
-            // labelStatus
+            // listBoxGroup
             // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStatus.Location = new System.Drawing.Point(8, 40);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(74, 20);
-            this.labelStatus.TabIndex = 19;
-            this.labelStatus.Text = "Статус:";
+            this.listBoxGroup.FormattingEnabled = true;
+            this.listBoxGroup.ItemHeight = 16;
+            this.listBoxGroup.Location = new System.Drawing.Point(415, 21);
+            this.listBoxGroup.Name = "listBoxGroup";
+            this.listBoxGroup.Size = new System.Drawing.Size(366, 148);
+            this.listBoxGroup.TabIndex = 24;
+            // 
+            // buttonRemoveGroup
+            // 
+            this.buttonRemoveGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonRemoveGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRemoveGroup.ForeColor = System.Drawing.Color.White;
+            this.buttonRemoveGroup.Location = new System.Drawing.Point(327, 89);
+            this.buttonRemoveGroup.Name = "buttonRemoveGroup";
+            this.buttonRemoveGroup.Size = new System.Drawing.Size(51, 35);
+            this.buttonRemoveGroup.TabIndex = 23;
+            this.buttonRemoveGroup.Text = "-";
+            this.buttonRemoveGroup.UseVisualStyleBackColor = false;
+            this.buttonRemoveGroup.Visible = false;
+            this.buttonRemoveGroup.Click += new System.EventHandler(this.buttonRemoveGroup_Click);
+            // 
+            // buttonAddGroup
+            // 
+            this.buttonAddGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.buttonAddGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddGroup.ForeColor = System.Drawing.Color.White;
+            this.buttonAddGroup.Location = new System.Drawing.Point(252, 89);
+            this.buttonAddGroup.Name = "buttonAddGroup";
+            this.buttonAddGroup.Size = new System.Drawing.Size(51, 35);
+            this.buttonAddGroup.TabIndex = 22;
+            this.buttonAddGroup.Text = "+";
+            this.buttonAddGroup.UseVisualStyleBackColor = false;
+            this.buttonAddGroup.Visible = false;
+            this.buttonAddGroup.Click += new System.EventHandler(this.buttonAddGroup_Click);
             // 
             // labelGroup
             // 
@@ -319,7 +346,6 @@
             // comboBoxGroup
             // 
             this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.Enabled = false;
             this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxGroup.FormattingEnabled = true;
             this.comboBoxGroup.Location = new System.Drawing.Point(12, 130);
@@ -328,40 +354,15 @@
             this.comboBoxGroup.TabIndex = 20;
             this.comboBoxGroup.Visible = false;
             // 
-            // buttonAddGroup
+            // labelStatus
             // 
-            this.buttonAddGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.buttonAddGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddGroup.ForeColor = System.Drawing.Color.White;
-            this.buttonAddGroup.Location = new System.Drawing.Point(252, 89);
-            this.buttonAddGroup.Name = "buttonAddGroup";
-            this.buttonAddGroup.Size = new System.Drawing.Size(51, 35);
-            this.buttonAddGroup.TabIndex = 22;
-            this.buttonAddGroup.Text = "+";
-            this.buttonAddGroup.UseVisualStyleBackColor = false;
-            this.buttonAddGroup.Visible = false;
-            // 
-            // buttonRemoveGroup
-            // 
-            this.buttonRemoveGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonRemoveGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRemoveGroup.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveGroup.Location = new System.Drawing.Point(327, 89);
-            this.buttonRemoveGroup.Name = "buttonRemoveGroup";
-            this.buttonRemoveGroup.Size = new System.Drawing.Size(51, 35);
-            this.buttonRemoveGroup.TabIndex = 23;
-            this.buttonRemoveGroup.Text = "-";
-            this.buttonRemoveGroup.UseVisualStyleBackColor = false;
-            this.buttonRemoveGroup.Visible = false;
-            // 
-            // listBoxGroup
-            // 
-            this.listBoxGroup.FormattingEnabled = true;
-            this.listBoxGroup.ItemHeight = 16;
-            this.listBoxGroup.Location = new System.Drawing.Point(415, 21);
-            this.listBoxGroup.Name = "listBoxGroup";
-            this.listBoxGroup.Size = new System.Drawing.Size(366, 148);
-            this.listBoxGroup.TabIndex = 24;
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatus.Location = new System.Drawing.Point(8, 40);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(74, 20);
+            this.labelStatus.TabIndex = 19;
+            this.labelStatus.Text = "Статус:";
             // 
             // DetailedPatient
             // 

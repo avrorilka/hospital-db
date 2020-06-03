@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace RegistryLib
 {
     public class Patient : Model 
     {
 		public int card_number { get; set; }
-		public string first_name { get; set; }
-		public string surname { get; set; }
+		public string first_name 
+		{
+			get; set;
+		}
+	public string surname { get; set; }
 		public string midlle_name { get; set; }
 		public string birth_date { get; set; }
 		public string phone_number { get; set; }
@@ -33,6 +37,16 @@ namespace RegistryLib
 			this.address = Address;
 			status = new Status(Status_id);
 			groupList = GroupList;
+		}
+		public Patient(string First_name, string Surname, string Midlle_name,
+					   string Birth_date, string Phone_number, string Address)
+		{
+			this.first_name = First_name;
+			this.surname = Surname;
+			this.midlle_name = Midlle_name;
+			this.birth_date = Birth_date;
+			this.phone_number = Phone_number;
+			this.address = Address;
 		}
 		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
 					   string Birth_date, string Phone_number, string Address, int Status_id)
@@ -72,6 +86,7 @@ namespace RegistryLib
 		}
 
 
+
 		public static DataTable CreateTable(SQLiteDataReader readerData)
 		{
 			DataTable table = new DataTable();
@@ -96,18 +111,13 @@ namespace RegistryLib
 			return table;
 		}
 		
-		public void InsertNewPatient(Patient patient)
+		public static void InsertNewPatient(Patient patient)
 		{
-			SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, phone_number, address) " +
-														"VALUES(?,?,?,?,?,?)");
-			insertSQL.Parameters.Add(patient.first_name);
-			insertSQL.Parameters.Add(patient.surname);
-			insertSQL.Parameters.Add(patient.midlle_name);
-			insertSQL.Parameters.Add(patient.birth_date);
-			insertSQL.Parameters.Add(patient.phone_number);
-			insertSQL.Parameters.Add(patient.address);
-	
-			insertSQL.ExecuteNonQuery();
+			EditMember("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, " +
+						"phone_number, address, status_id) " +
+						 $"VALUES(\"{patient.first_name}\", \"{patient.surname}\", \"{patient.midlle_name}\", " +
+						 $"\"{patient.birth_date}\", \"{patient.phone_number}\", \"{patient.address}\", NULL)");
+
 		
 		}
 		public static void DeletePatient(int card_number)
@@ -116,18 +126,55 @@ namespace RegistryLib
 					   $"WHERE card_number = {card_number};");
 		}
 
-		public static Patient ConvertPatient(int card_number)
+		public static Patient DetailedPatient(int card_number)
 		{
 			Patient patient;
-			readerData = AllMembers($"SELECT * From Patient WHERE card_number = {card_number}");
+			readerData = AllMembers($"SELECT Patient.card_number, Patient.first_name, Patient.surname, Patient.midlle_name, " +
+											$"Patient.birth_date, Patient.phone_number, Patient.address, Patient.status_id, " +
+											$"Privileged_group.id, Privileged_group.name, Privileged_group.discount_percent " +
+									$"FROM Patient " +
+									$"LEFT OUTER JOIN " +
+										$"Patient_Group ON Patient.card_number = Patient_Group.patient_id " +
+									$"LEFT OUTER JOIN " +
+										$"Privileged_group ON Patient_Group.group_id = Privileged_group.id "+
+									$"WHERE card_number = {card_number}");
+
 			while (readerData.Read())
 			{
-				patient = new Patient(Convert.ToInt32(readerData[0]), Convert.ToString(readerData[1]),
-									  Convert.ToString(readerData[2]), Convert.ToString(readerData[3]),
-									  Convert.ToString(readerData[4]), Convert.ToString(readerData[5]),
-									  Convert.ToString(readerData[6]), Convert.ToInt32(readerData[7]));
+
+				int cardNumb = Convert.ToInt32(readerData[0]);
+				string name = Convert.ToString(readerData[1]), surname = Convert.ToString(readerData[2]),
+					  middleName = Convert.ToString(readerData[3]), birthDate = Convert.ToString(readerData[4]),
+					  phoneNumb = Convert.ToString(readerData[5]), adress = Convert.ToString(readerData[6]);
+				int statusId = 0; 
+
+
+				if (readerData[7] != DBNull.Value)
+				{
+					statusId = Convert.ToInt32(readerData[7]);
+				}
+
+				Privileged_group.patientLists = new List<Privileged_group>();
+
+				while (readerData.Read())
+				{
+					Privileged_group group = new Privileged_group(Convert.ToInt32(readerData[8]), Convert.ToString(readerData[9]), Convert.ToDouble(readerData[10]));
+					Privileged_group.patientLists.Add(group);
+				}
+
+				if (statusId != 0)
+				{
+					patient = new Patient(cardNumb, name, surname, middleName, birthDate, phoneNumb, adress,
+									  Privileged_group.patientLists);
+				}
+
+				else 
+					patient = new Patient(cardNumb, name, surname, middleName, birthDate, phoneNumb, adress, statusId,
+									  Privileged_group.patientLists);
+
 				return patient;
 			}
+			
 			Patient NEW = new Patient();
 			return NEW;
 		}

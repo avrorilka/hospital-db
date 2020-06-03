@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\AddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddPatient.Designer.cs">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AllPatients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Content Include="hospital.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="View\AddPatient.resx">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AllPatients.resx">
       <DependentUpon>AllPatients.cs</DependentUpon>
     </EmbeddedResource>

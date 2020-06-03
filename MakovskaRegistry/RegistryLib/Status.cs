@@ -18,5 +18,20 @@ namespace RegistryLib
 		{
 			this.id = Id;
 		}
+
+		public static List<string> FillStatusBox()
+		{
+			Model.readerData = Model.AllMembers("SELECT name FROM Status");
+			List<string> statusList = new List<string>();
+			statusList.Add("");
+			while (Model.readerData.Read())
+			{
+				statusList.Add(Convert.ToString(Model.readerData[0]));
+			}
+			Model.Closer(Model.readerData);
+
+			return statusList;
+		}
+
 	}
 }

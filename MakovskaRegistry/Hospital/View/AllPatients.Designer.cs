@@ -140,6 +140,7 @@
             this.buttonAddPatient.TabIndex = 10;
             this.buttonAddPatient.Text = "Додати пацієнта";
             this.buttonAddPatient.UseVisualStyleBackColor = true;
+            this.buttonAddPatient.Click += new System.EventHandler(this.buttonAddPatient_Click);
             // 
             // AllPatients
             // 
