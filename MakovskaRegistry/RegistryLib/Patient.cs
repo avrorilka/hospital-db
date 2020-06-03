@@ -4,17 +4,15 @@ using System.Data;
 using System.Data.SQLite;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace RegistryLib
 {
     public class Patient : Model 
-    {
+    { 
 		public int card_number { get; set; }
-		public string first_name 
-		{
-			get; set;
-		}
-	public string surname { get; set; }
+		public string first_name { get; set; }
+		public string surname { get; set; }
 		public string midlle_name { get; set; }
 		public string birth_date { get; set; }
 		public string phone_number { get; set; }

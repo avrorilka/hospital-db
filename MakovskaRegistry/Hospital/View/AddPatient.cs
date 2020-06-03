@@ -33,27 +33,24 @@ namespace Hospital.View
         private void buttonSave_Click(object sender, EventArgs e)
         {
             string name, surname, middleName, birthDate, phoneNumb, address;
-
-            name = textBoxFirstName.Text;
-            surname = textBoxSurname.Text;
-            middleName = textBoxMiddleName.Text;
-            birthDate = textBoxBirth.Text;
-            phoneNumb = textBoxPhone.Text;
-            address = textBoxAddress.Text;
-
-            Patient patient = new Patient(name, surname, middleName, birthDate, phoneNumb, address);
-            Patient.InsertNewPatient(patient);
-
-            GetDetailedInfo();
             try
             {
-                
+                name = textBoxFirstName.Text;
+                surname = textBoxSurname.Text;
+                middleName = textBoxMiddleName.Text;
+                birthDate = textBoxBirth.Text;
+                phoneNumb = textBoxPhone.Text;
+                address = textBoxAddress.Text;
+
+                Patient patient = new Patient(name, surname, middleName, birthDate, phoneNumb, address);
+                Patient.InsertNewPatient(patient);
+
+                GetDetailedInfo();
             }
             catch
             {
                 MessageBox.Show("Помилка введення значень!", "Помилка", MessageBoxButtons.OK);
             }
-
         }
 
       

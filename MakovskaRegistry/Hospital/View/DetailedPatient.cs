@@ -95,32 +95,39 @@ namespace Hospital.View
         {
             string first_name, surname, midlle_name, birth_date, phone_number, address;
             int status;
-            first_name = textBoxFirstName.Text;
-            surname = textBoxSurname.Text;
-            midlle_name = textBoxMiddleName.Text;
-            birth_date = textBoxBirth.Text;
-            phone_number = textBoxPhone.Text;
-            address = textBoxAddress.Text;
-            status = comboBoxStatus.SelectedIndex;
-            
+            try
+            {
+                first_name = textBoxFirstName.Text;
+                surname = textBoxSurname.Text;
+                midlle_name = textBoxMiddleName.Text;
+                birth_date = textBoxBirth.Text;
+                phone_number = textBoxPhone.Text;
+                address = textBoxAddress.Text;
+                status = comboBoxStatus.SelectedIndex;
 
-            Patient patient = new Patient(Convert.ToInt32(textBoxCardNumb.Text), first_name, surname, midlle_name,
-                        birth_date, phone_number, address, status);
 
-            Patient.EditPatient(patient);
+                Patient patient = new Patient(Convert.ToInt32(textBoxCardNumb.Text), first_name, surname, midlle_name,
+                            birth_date, phone_number, address, status);
 
-            buttonSave.Visible = false;
-            textBoxFirstName.ReadOnly = true;
-            textBoxSurname.ReadOnly = true;
-            textBoxMiddleName.ReadOnly = true;
-            textBoxBirth.ReadOnly = true;
-            textBoxPhone.ReadOnly = true;
-            textBoxAddress.ReadOnly = true;
-            comboBoxStatus.Enabled = false;
-            labelGroup.Visible = false;
-            comboBoxGroup.Visible = false;
-            buttonAddGroup.Visible = false;
-            buttonRemoveGroup.Visible = false;
+                Patient.EditPatient(patient);
+
+                buttonSave.Visible = false;
+                textBoxFirstName.ReadOnly = true;
+                textBoxSurname.ReadOnly = true;
+                textBoxMiddleName.ReadOnly = true;
+                textBoxBirth.ReadOnly = true;
+                textBoxPhone.ReadOnly = true;
+                textBoxAddress.ReadOnly = true;
+                comboBoxStatus.Enabled = false;
+                labelGroup.Visible = false;
+                comboBoxGroup.Visible = false;
+                buttonAddGroup.Visible = false;
+                buttonRemoveGroup.Visible = false;
+            }
+            catch
+            {
+                MessageBox.Show("Помилка введення значень!", "Помилка", MessageBoxButtons.OK);
+            }
 
         }
         private void buttonDelete_Click(object sender, EventArgs e)

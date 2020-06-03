@@ -20,3 +20,15 @@ D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\Regis
 D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.csproj.CopyComplete
 D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.dll
 D:\stud\1\coursework\MakovskaRegistry\RegistryLib\obj\Debug\netstandard2.0\RegistryLib.pdb
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Windows.Forms.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Security.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Configuration.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\Accessibility.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Deployment.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.dll
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Windows.Forms.xml
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Security.xml
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Configuration.xml
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\Accessibility.xml
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Deployment.xml
+D:\stud\1\coursework\MakovskaRegistry\RegistryLib\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml
