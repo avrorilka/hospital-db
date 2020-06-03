@@ -22,6 +22,10 @@ namespace RegistryLib
 
 
 		public Patient() { }
+		public Patient(int Card_number)
+		{
+			this.card_number = Card_number;
+		}
 		public Patient(int Card_number, string First_name, string Surname, string Midlle_name,
 					   string Birth_date, string Phone_number, string Address, int Status_id, 
 					   List<Privileged_group> GroupList)

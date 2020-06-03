@@ -20,5 +20,9 @@ namespace RegistryLib
 			this.middle_name = Middle_name;
 			this.cabinet = new Cabinet(Cabinet_id);
 		}
+		public Doctor(int Id)
+		{
+			this.id = Id;
+		}
 	}
 }
