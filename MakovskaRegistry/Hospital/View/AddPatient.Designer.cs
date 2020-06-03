@@ -45,14 +45,20 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.labelExampleBDay = new System.Windows.Forms.Label();
+            this.labelExamplePhome = new System.Windows.Forms.Label();
+            this.labelExampleAddress = new System.Windows.Forms.Label();
             this.groupBoxGeneralData.SuspendLayout();
             this.groupBoxFullName.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxGeneralData
             // 
+            this.groupBoxGeneralData.Controls.Add(this.labelExampleAddress);
             this.groupBoxGeneralData.Controls.Add(this.labelBirth);
+            this.groupBoxGeneralData.Controls.Add(this.labelExamplePhome);
             this.groupBoxGeneralData.Controls.Add(this.labelPhone);
+            this.groupBoxGeneralData.Controls.Add(this.labelExampleBDay);
             this.groupBoxGeneralData.Controls.Add(this.labelAddress);
             this.groupBoxGeneralData.Controls.Add(this.textBoxBirth);
             this.groupBoxGeneralData.Controls.Add(this.textBoxPhone);
@@ -219,6 +225,36 @@
             this.labelTitle.TabIndex = 22;
             this.labelTitle.Text = "Додати нового пацієнта до бази";
             // 
+            // labelExampleBDay
+            // 
+            this.labelExampleBDay.AutoSize = true;
+            this.labelExampleBDay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExampleBDay.Location = new System.Drawing.Point(243, 8);
+            this.labelExampleBDay.Name = "labelExampleBDay";
+            this.labelExampleBDay.Size = new System.Drawing.Size(90, 17);
+            this.labelExampleBDay.TabIndex = 15;
+            this.labelExampleBDay.Text = "03.05.2007";
+            // 
+            // labelExamplePhome
+            // 
+            this.labelExamplePhome.AutoSize = true;
+            this.labelExamplePhome.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExamplePhome.Location = new System.Drawing.Point(243, 55);
+            this.labelExamplePhome.Name = "labelExamplePhome";
+            this.labelExamplePhome.Size = new System.Drawing.Size(74, 17);
+            this.labelExamplePhome.TabIndex = 30;
+            this.labelExamplePhome.Text = "55-55-55";
+            // 
+            // labelExampleAddress
+            // 
+            this.labelExampleAddress.AutoSize = true;
+            this.labelExampleAddress.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExampleAddress.Location = new System.Drawing.Point(165, 105);
+            this.labelExampleAddress.Name = "labelExampleAddress";
+            this.labelExampleAddress.Size = new System.Drawing.Size(193, 17);
+            this.labelExampleAddress.TabIndex = 31;
+            this.labelExampleAddress.Text = "вул. Київська 10, кв. 103";
+            // 
             // AddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,5 +297,8 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelExampleBDay;
+        private System.Windows.Forms.Label labelExamplePhome;
+        private System.Windows.Forms.Label labelExampleAddress;
     }
 }

@@ -155,6 +155,8 @@
             this.Controls.Add(this.Details);
             this.Controls.Add(this.dataGridViewPatients);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MaximumSize = new System.Drawing.Size(698, 436);
+            this.MinimumSize = new System.Drawing.Size(698, 436);
             this.Name = "AllPatients";
             this.Text = "Список всіх пацієнтів";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).EndInit();

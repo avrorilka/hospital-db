@@ -27,12 +27,12 @@ namespace Hospital.View
         {
             patient = Patient.DetailedPatient(card_number);
             textBoxCardNumb.Text = Convert.ToString(patient.card_number);
-            textBoxFirstName.Text = patient.first_name;
-            textBoxSurname.Text = patient.surname;
-            textBoxMiddleName.Text = patient.midlle_name;
-            textBoxBirth.Text = patient.birth_date;
-            textBoxPhone.Text = patient.phone_number;
-            textBoxAddress.Text = patient.address;
+            textBoxFirstName.Text = patient.FirstName;
+            textBoxSurname.Text = patient.Surname;
+            textBoxMiddleName.Text = patient.MidlleName;
+            textBoxBirth.Text = patient.Birth_date;
+            textBoxPhone.Text = patient.PhoneNumber;
+            textBoxAddress.Text = patient.Address;
 
             FillStatusBox();
             FillGroupBox();

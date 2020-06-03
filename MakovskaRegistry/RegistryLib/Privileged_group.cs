@@ -12,19 +12,19 @@ namespace RegistryLib
 	{
 		public int id { get; set; }
 		public string name { get; set; }
-		public double discount_percent { get; set; }
+		public double discountPercent { get; set; }
 		public static List<Privileged_group> patientLists = new List<Privileged_group>();
 
 		public Privileged_group(int Id, string Name, double Discount_percent)
 		{
 			this.id = Id;
 			this.name = Name;
-			this.discount_percent = Discount_percent;
+			this.discountPercent = Discount_percent;
 		}
 		public Privileged_group(int Id, double Discount_percent)
 		{
 			this.id = Id;
-			this.discount_percent = Discount_percent;
+			this.discountPercent = Discount_percent;
 		}
 		public Privileged_group()
 		{
