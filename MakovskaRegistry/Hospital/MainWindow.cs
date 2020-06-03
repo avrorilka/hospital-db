@@ -30,5 +30,11 @@ namespace Hospital
         {
             Close();
         }
+
+        private void buttonAllDoctors_Click(object sender, EventArgs e)
+        {
+            AllDoctors form = new AllDoctors();
+            form.Show();
+        }
     }
 }

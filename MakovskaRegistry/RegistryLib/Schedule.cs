@@ -8,15 +8,15 @@ namespace RegistryLib
 	{
 		public int id { get; set; }
 		public int doctor_id { get; set; }
-		public string time_start { get; set; }
-		public string time_end { get; set; }
+		public string timeStart { get; set; }
+		public string timeEnd { get; set; }
 
-		public Schedule(int Id, int doctor_id_, string time_start_, string time_end_)
+		public Schedule(int Id, int doctor_id, string time_start, string time_end)
 		{
 			this.id = Id;
-			this.doctor_id = doctor_id_;
-			this.time_start = time_start_;
-			this.time_end = time_end_;
+			this.doctor_id = doctor_id;
+			this.timeStart = time_start;
+			this.timeEnd = time_end;
 		}
 	}
 }

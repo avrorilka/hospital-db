@@ -55,6 +55,12 @@
     <Compile Include="View\AddPatient.Designer.cs">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AllDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AllDoctors.Designer.cs">
+      <DependentUpon>AllDoctors.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AllPatients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Content>
     <EmbeddedResource Include="View\AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AllDoctors.resx">
+      <DependentUpon>AllDoctors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AllPatients.resx">
       <DependentUpon>AllPatients.cs</DependentUpon>

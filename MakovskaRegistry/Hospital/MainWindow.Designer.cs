@@ -31,6 +31,7 @@
             this.buttonPatients = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonAllDoctors = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPatients
@@ -68,11 +69,23 @@
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // buttonAllDoctors
+            // 
+            this.buttonAllDoctors.Location = new System.Drawing.Point(108, 203);
+            this.buttonAllDoctors.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAllDoctors.Name = "buttonAllDoctors";
+            this.buttonAllDoctors.Size = new System.Drawing.Size(198, 58);
+            this.buttonAllDoctors.TabIndex = 3;
+            this.buttonAllDoctors.Text = "Всі лікарі";
+            this.buttonAllDoctors.UseVisualStyleBackColor = true;
+            this.buttonAllDoctors.Click += new System.EventHandler(this.buttonAllDoctors_Click);
+            // 
             // HospitalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 464);
+            this.Controls.Add(this.buttonAllDoctors);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonPatients);
@@ -92,6 +105,7 @@
         private System.Windows.Forms.Button buttonPatients;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonAllDoctors;
     }
 }
 

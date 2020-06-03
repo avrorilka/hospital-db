@@ -42,43 +42,43 @@ namespace RegistryLib
 			}
 		}
 
-		private string midlle_name;
-		public string MidlleName
+		private string middleName;
+		public string MiddleName
 		{
-			get => midlle_name;
+			get => middleName;
 			set
 			{
 				pattern = @"([А-ЯІЇЄҐ][а-яіїєґ\-’]+)";
 				if (Regex.IsMatch(value, pattern, RegexOptions.IgnoreCase) || String.IsNullOrWhiteSpace(value))
-					midlle_name = value;
+					middleName = value;
 				else
 					throw new ArgumentException();
 			}
 		}
 
-		private string birth_date;
-		public string Birth_date 
+		private string birthDate;
+		public string BirthDate 
 		{
-			get => birth_date;
+			get => birthDate;
 			set
 			{
 				pattern = @"((0[1-9]|[1-2][0-9]|3[0-1]).(0[1-9]|1[0-2]).(19[0-9]{2}|20[0-2][0-9]|201[0-7]))";
 				if (Regex.IsMatch(value, pattern, RegexOptions.IgnoreCase) || value == "")
-					birth_date = value;
+					birthDate = value;
 				else
 					throw new ArgumentException();
 			}
 		}
 
-		private string phone_number;
+		private string phoneNumber;
 		public string PhoneNumber
 		{
-			get => phone_number;
+			get => phoneNumber;
 			set
 			{
 				pattern = @"([1-9][0-9]-[0-9]{2}-[0-9]{2})";
 				if (Regex.IsMatch(value, pattern, RegexOptions.IgnoreCase) || value == "")
-					phone_number = value;
+					phoneNumber = value;
 				else
 					throw new ArgumentException();
 			}
@@ -113,8 +113,8 @@ namespace RegistryLib
 			this.card_number = Card_number;
 			this.FirstName = First_name;
 			this.Surname = Surname;
-			this.MidlleName = Midlle_name;
-			this.Birth_date = Birth_date;
+			this.MiddleName = Midlle_name;
+			this.BirthDate = Birth_date;
 			this.PhoneNumber = Phone_number;
 			this.Address = Address;
 			status = new Status(Status_id);
@@ -125,8 +125,8 @@ namespace RegistryLib
 		{
 			this.FirstName = First_name;
 			this.Surname = Surname;
-			this.MidlleName = Midlle_name;
-			this.Birth_date = Birth_date;
+			this.MiddleName = Midlle_name;
+			this.BirthDate = Birth_date;
 			this.PhoneNumber = Phone_number;
 			this.Address = Address;
 		}
@@ -136,8 +136,8 @@ namespace RegistryLib
 			this.card_number = Card_number;
 			this.FirstName = First_name;
 			this.Surname = Surname;
-			this.MidlleName = Midlle_name;
-			this.Birth_date = Birth_date;
+			this.MiddleName = Midlle_name;
+			this.BirthDate = Birth_date;
 			this.PhoneNumber = Phone_number;
 			this.Address = Address;
 			status = new Status(Status_id);
@@ -149,8 +149,8 @@ namespace RegistryLib
 			this.card_number = Card_number;
 			this.FirstName = First_name;
 			this.Surname = Surname;
-			this.MidlleName = Midlle_name;
-			this.Birth_date = Birth_date;
+			this.MiddleName = Midlle_name;
+			this.BirthDate = Birth_date;
 			this.PhoneNumber = Phone_number;
 			this.Address = Address;
 			groupList = GroupList;
@@ -161,8 +161,8 @@ namespace RegistryLib
 			this.card_number = Card_number;
 			this.FirstName = First_name;
 			this.Surname = Surname;
-			this.MidlleName = Midlle_name;
-			this.Birth_date = Birth_date;
+			this.MiddleName = Midlle_name;
+			this.BirthDate = Birth_date;
 			this.PhoneNumber = Phone_number;
 			this.Address = Address;
 		}
@@ -197,8 +197,8 @@ namespace RegistryLib
 		{
 			EditMember("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, " +
 						"phone_number, address, status_id) " +
-						 $"VALUES(\"{patient.FirstName}\", \"{patient.Surname}\", \"{patient.MidlleName}\", " +
-						 $"\"{patient.Birth_date}\", \"{patient.PhoneNumber}\", \"{patient.Address}\", NULL)");
+						 $"VALUES(\"{patient.FirstName}\", \"{patient.Surname}\", \"{patient.MiddleName}\", " +
+						 $"\"{patient.BirthDate}\", \"{patient.PhoneNumber}\", \"{patient.Address}\", NULL)");
 
 		
 		}
@@ -263,7 +263,7 @@ namespace RegistryLib
 		public static void EditPatient(Patient patient)
 		{
 			EditMember($"UPDATE Patient SET first_name = \"{patient.FirstName}\", surname = \"{patient.Surname}\", " +
-							$"midlle_name = \"{patient.MidlleName}\", birth_date = \"{patient.Birth_date}\", " +
+							$"midlle_name = \"{patient.MiddleName}\", birth_date = \"{patient.BirthDate}\", " +
 							$"phone_number = \"{patient.PhoneNumber}\", address = \"{patient.Address}\", " +
 							$"status_id = {patient.status.id} " +
 						$"WHERE card_number = {patient.card_number}"); 

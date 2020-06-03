@@ -29,8 +29,8 @@ namespace Hospital.View
             textBoxCardNumb.Text = Convert.ToString(patient.card_number);
             textBoxFirstName.Text = patient.FirstName;
             textBoxSurname.Text = patient.Surname;
-            textBoxMiddleName.Text = patient.MidlleName;
-            textBoxBirth.Text = patient.Birth_date;
+            textBoxMiddleName.Text = patient.MiddleName;
+            textBoxBirth.Text = patient.BirthDate;
             textBoxPhone.Text = patient.PhoneNumber;
             textBoxAddress.Text = patient.Address;
 
