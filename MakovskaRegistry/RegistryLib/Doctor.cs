@@ -72,7 +72,13 @@ namespace RegistryLib
 
 		public static DataTable AllMembersTable()
 		{
-			readerData = AllMembers("Select * From Doctor");
+			readerData = AllMembers("Select Doctor.id, Doctor.first_name, Doctor.surname, Doctor.middle_name, " +
+									"Cabinet.cabinet_number, Type.name " +
+									"From Doctor " +
+									"LEFT OUTER JOIN " +
+									"Cabinet ON Doctor.cabinet_id = Cabinet.type_id " +
+									"LEFT OUTER JOIN " +
+									"Type ON Cabinet.type_id = Type.id");
 			DataTable table = CreateTable(readerData);
 			return table;
 		}
@@ -82,15 +88,21 @@ namespace RegistryLib
 
 			table.Columns.Add("Ім'я");
 			table.Columns.Add("Прізвище");
-			table.Columns.Add("По Батькові");
 			table.Columns.Add("Номер кабінету");
+			table.Columns.Add("Спеціальність");
 
 			while (readerData.Read())
 			{
-				table.Rows.Add(readerData[1], readerData[2], readerData[3], readerData[4]);
+				table.Rows.Add(readerData[1], readerData[2], readerData[4], readerData[5]);
 			}
 
 			return table;
+		}
+
+		public static void DeleteDoctor(int id)
+		{
+			EditMember($"DELETE FROM Doctor " +
+					   $"WHERE id = {id};");
 		}
 	}
 }

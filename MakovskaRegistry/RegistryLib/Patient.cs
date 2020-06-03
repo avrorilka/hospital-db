@@ -286,7 +286,7 @@ namespace RegistryLib
 				case 1: 
 					{
 						readerData = AllMembers("Select * From Patient " +
-							  $"WHERE first_name = \"{text}\"");
+							  $"WHERE first_name LIKE '%{text}%'");
 						table = CreateTable(readerData);
 
 						break;
@@ -294,7 +294,7 @@ namespace RegistryLib
 				case 2: 
 					{
 						readerData = AllMembers("Select * From Patient " +
-								$"WHERE surname = \"{text}\"");
+								$"WHERE surname LIKE '%{text}%'");
 						table = CreateTable(readerData);
 
 						break;
@@ -302,7 +302,7 @@ namespace RegistryLib
 				case 3: 
 					{
 						readerData = AllMembers("Select * From Patient " +
-									$"WHERE birth_date = \"{text}\"");
+									$" WHERE birth_date LIKE '%{text}%'");
 						table = CreateTable(readerData);
 
 						break;
