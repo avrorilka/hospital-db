@@ -16,12 +16,27 @@ namespace Hospital.View
         public AllDoctors()
         {
             InitializeComponent();
+            comboBoxSearch.SelectedIndex = 0;
             FillDataGrid();
         }
 
         public void FillDataGrid()
         {
             DataTable table = Doctor.AllMembersTable();
+            dataGridViewDoctors.DataSource = table;
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            DataTable table = Doctor.AllMembersTable();
+            dataGridViewDoctors.DataSource = table;
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            int index = comboBoxSearch.SelectedIndex;
+            string text = textBoxSearch.Text;
+            DataTable table = Doctor.SearchDoctor(index, text);
             dataGridViewDoctors.DataSource = table;
         }
     }

@@ -43,7 +43,7 @@
             // buttonAddDoctor
             // 
             this.buttonAddDoctor.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddDoctor.Location = new System.Drawing.Point(34, 295);
+            this.buttonAddDoctor.Location = new System.Drawing.Point(34, 166);
             this.buttonAddDoctor.Name = "buttonAddDoctor";
             this.buttonAddDoctor.Size = new System.Drawing.Size(163, 34);
             this.buttonAddDoctor.TabIndex = 19;
@@ -59,12 +59,13 @@
             this.buttonSearch.TabIndex = 18;
             this.buttonSearch.Text = "->";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(212, 9);
+            this.labelTitle.Location = new System.Drawing.Point(234, 9);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(235, 25);
             this.labelTitle.TabIndex = 17;
@@ -87,6 +88,7 @@
             this.buttonRefresh.TabIndex = 15;
             this.buttonRefresh.Text = "Оновити";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // labelSearch
             // 
@@ -104,10 +106,10 @@
             this.comboBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.Items.AddRange(new object[] {
-            "за номером медкарти",
             "за ім\'ям",
             "за прізвищем",
-            "за датою народження"});
+            "за номером кабінету",
+            "за спеціальністю"});
             this.comboBoxSearch.Location = new System.Drawing.Point(90, 59);
             this.comboBoxSearch.Name = "comboBoxSearch";
             this.comboBoxSearch.Size = new System.Drawing.Size(193, 28);
@@ -116,7 +118,7 @@
             // Details
             // 
             this.Details.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Details.Location = new System.Drawing.Point(34, 255);
+            this.Details.Location = new System.Drawing.Point(34, 126);
             this.Details.Name = "Details";
             this.Details.Size = new System.Drawing.Size(163, 34);
             this.Details.TabIndex = 12;
