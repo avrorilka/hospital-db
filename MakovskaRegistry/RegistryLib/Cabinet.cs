@@ -21,9 +21,9 @@ namespace RegistryLib
 			this.type = new Type(Type_id);
 			this.cabinetNumber = Cabinet_number;
 		}
-		public Cabinet(int id)
+		public Cabinet(int Cabinet_number)
 		{
-			this.id = id;
+			this.id = Cabinet_number;
 		}
 	}
 }

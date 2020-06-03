@@ -75,6 +75,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DetailedDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailedDoctor.Designer.cs">
+      <DependentUpon>DetailedDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailedPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AllPatients.resx">
       <DependentUpon>AllPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailedDoctor.resx">
+      <DependentUpon>DetailedDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailedPatient.resx">
       <DependentUpon>DetailedPatient.cs</DependentUpon>

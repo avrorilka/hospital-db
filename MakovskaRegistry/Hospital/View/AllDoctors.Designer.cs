@@ -43,7 +43,7 @@
             // buttonAddDoctor
             // 
             this.buttonAddDoctor.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddDoctor.Location = new System.Drawing.Point(34, 166);
+            this.buttonAddDoctor.Location = new System.Drawing.Point(19, 291);
             this.buttonAddDoctor.Name = "buttonAddDoctor";
             this.buttonAddDoctor.Size = new System.Drawing.Size(163, 34);
             this.buttonAddDoctor.TabIndex = 19;
@@ -53,7 +53,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSearch.Location = new System.Drawing.Point(596, 57);
+            this.buttonSearch.Location = new System.Drawing.Point(667, 57);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(63, 28);
             this.buttonSearch.TabIndex = 18;
@@ -65,7 +65,7 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(234, 9);
+            this.labelTitle.Location = new System.Drawing.Point(274, 9);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(235, 25);
             this.labelTitle.TabIndex = 17;
@@ -76,13 +76,13 @@
             this.textBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxSearch.Location = new System.Drawing.Point(289, 59);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(301, 28);
+            this.textBoxSearch.Size = new System.Drawing.Size(372, 28);
             this.textBoxSearch.TabIndex = 16;
             // 
             // buttonRefresh
             // 
             this.buttonRefresh.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRefresh.Location = new System.Drawing.Point(34, 335);
+            this.buttonRefresh.Location = new System.Drawing.Point(19, 334);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(163, 34);
             this.buttonRefresh.TabIndex = 15;
@@ -118,33 +118,34 @@
             // Details
             // 
             this.Details.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Details.Location = new System.Drawing.Point(34, 126);
+            this.Details.Location = new System.Drawing.Point(19, 251);
             this.Details.Name = "Details";
             this.Details.Size = new System.Drawing.Size(163, 34);
             this.Details.TabIndex = 12;
             this.Details.Text = "Детальніше";
             this.Details.UseVisualStyleBackColor = true;
+            this.Details.Click += new System.EventHandler(this.Details_Click);
             // 
             // dataGridViewDoctors
             // 
             this.dataGridViewDoctors.AllowUserToAddRows = false;
             this.dataGridViewDoctors.AllowUserToDeleteRows = false;
             this.dataGridViewDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDoctors.Location = new System.Drawing.Point(239, 109);
+            this.dataGridViewDoctors.Location = new System.Drawing.Point(206, 109);
             this.dataGridViewDoctors.Name = "dataGridViewDoctors";
             this.dataGridViewDoctors.ReadOnly = true;
             this.dataGridViewDoctors.RowHeadersVisible = false;
             this.dataGridViewDoctors.RowHeadersWidth = 51;
             this.dataGridViewDoctors.RowTemplate.Height = 24;
             this.dataGridViewDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDoctors.Size = new System.Drawing.Size(420, 260);
+            this.dataGridViewDoctors.Size = new System.Drawing.Size(524, 260);
             this.dataGridViewDoctors.TabIndex = 11;
             // 
             // AllDoctors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 382);
+            this.ClientSize = new System.Drawing.Size(750, 382);
             this.Controls.Add(this.buttonAddDoctor);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.labelTitle);
@@ -155,6 +156,9 @@
             this.Controls.Add(this.Details);
             this.Controls.Add(this.dataGridViewDoctors);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(768, 429);
+            this.MinimumSize = new System.Drawing.Size(768, 429);
             this.Name = "AllDoctors";
             this.Text = "AllDoctors";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctors)).EndInit();

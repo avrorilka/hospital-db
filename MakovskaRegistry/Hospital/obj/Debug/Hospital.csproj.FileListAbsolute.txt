@@ -33,3 +33,4 @@ D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.pdb
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.AllPatients.resources
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AddPatient.resources
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AllDoctors.resources
+D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.DetailedDoctor.resources

@@ -40,5 +40,17 @@ namespace Hospital.View
             dataGridViewDoctors.DataSource = table;
         }
 
+        private void Details_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDoctors.SelectedRows.Count == 1)
+            {
+                int rowIndex = dataGridViewDoctors.CurrentCell.RowIndex;
+
+                int doctirId = Convert.ToInt32(dataGridViewDoctors.Rows[rowIndex].Cells[0].Value);
+
+                DetailedDoctor form = new DetailedDoctor(doctirId);
+                form.Show();
+            }
+        }
     }
 }

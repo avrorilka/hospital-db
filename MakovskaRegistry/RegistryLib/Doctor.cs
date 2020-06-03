@@ -56,6 +56,8 @@ namespace RegistryLib
 		}
 
 		public Cabinet cabinet;
+		public Type type;
+		public Schedule schedule;
 
 		public Doctor(int Id, string First_name, string Surname, string Middle_name, int Cabinet_id)
 		{
@@ -65,10 +67,22 @@ namespace RegistryLib
 			this.MiddleName = Middle_name;
 			this.cabinet = new Cabinet(Cabinet_id);
 		}
+		public Doctor(int Id, string First_name, string Surname, string Middle_name, 
+					  int CabinetNumb, string TypeName, string TimeStart, string TimeEnd)
+		{
+			this.id = Id;
+			this.FirstName = First_name;
+			this.Surname = Surname;
+			this.MiddleName = Middle_name;
+			this.cabinet = new Cabinet(CabinetNumb);
+			this.type = new Type(TypeName);
+			this.schedule = new Schedule(TimeStart, TimeEnd);
+		}
 		public Doctor(int Id)
 		{
 			this.id = Id;
 		}
+		public Doctor() { }
 
 
 		public static string DoctorString()
@@ -91,6 +105,7 @@ namespace RegistryLib
 		{
 			DataTable table = new DataTable();
 
+			table.Columns.Add("id");
 			table.Columns.Add("Ім'я");
 			table.Columns.Add("Прізвище");
 			table.Columns.Add("Номер кабінету");
@@ -98,7 +113,7 @@ namespace RegistryLib
 
 			while (readerData.Read())
 			{
-				table.Rows.Add(readerData[1], readerData[2], readerData[4], readerData[5]);
+				table.Rows.Add(readerData[0], readerData[1], readerData[2], readerData[4], readerData[5]);
 			}
 
 			return table;
@@ -110,9 +125,9 @@ namespace RegistryLib
 					   $"WHERE id = {id};");
 		}
 
-		public static void DetailedDoctor(int id)
+		public static Doctor DetailedDoctor(int id)
 		{
-			Patient patient;
+			Doctor doctor;
 			readerData = AllMembers($"Select Doctor.id, Doctor.first_name, Doctor.surname, Doctor.middle_name, " +
 									$"Cabinet.cabinet_number, Type.name, Schedule.time_start, Schedule.time_end " +
 									$"From Doctor " +
@@ -123,6 +138,23 @@ namespace RegistryLib
 									$"LEFT OUTER JOIN " +
 									$"Schedule ON Schedule.doctor_id = Doctor.id " +
 									$"WHERE Doctor.id = {id}");
+			while (readerData.Read())
+			{
+
+				int doctor_id = Convert.ToInt32(readerData[0]);
+				string name = Convert.ToString(readerData[1]), surname = Convert.ToString(readerData[2]),
+					  middleName = Convert.ToString(readerData[3]);
+				int cabinetNumber = Convert.ToInt32(readerData[4]);
+				string typeName = Convert.ToString(readerData[5]), 
+					timeStart = Convert.ToString(readerData[6]), timeEnd = Convert.ToString(readerData[7]);
+
+				doctor = new Doctor(doctor_id, name, surname, middleName, cabinetNumber, typeName, timeStart, timeEnd);
+
+				return doctor;
+			}
+
+			Doctor NEW = new Doctor();
+			return NEW;
 		}
 
 

@@ -14,6 +14,10 @@ namespace RegistryLib
 			this.id = Id;
 			this.name = Name;
 		}
+		public Type(string Name)
+		{
+			this.name = Name;
+		}
 		public Type(int Id)
 		{
 			this.id = Id;

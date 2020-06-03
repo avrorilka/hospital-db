@@ -23,5 +23,6 @@ namespace RegistryLib
 			this.timeStart = time_start;
 			this.timeEnd = time_end;
 		}
+
 	}
 }
