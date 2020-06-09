@@ -37,19 +37,18 @@ namespace Hospital.View
             FillStatusBox();
             FillGroupBox();
 
-            if (patient.status != null)
+            if (patient.status == null)
+                comboBoxStatus.SelectedIndex = 0;
+
+            else
             {
                 int status_id = patient.status.id;
-                Model.Closer(Model.readerData);
                 comboBoxStatus.SelectedIndex = status_id;
             }
-            if (patient.groupList != null) { FillList(); }
 
-            else 
-            {
-                Model.Closer(Model.readerData);
-                comboBoxStatus.SelectedIndex = 0;
-            }   
+            Model.Closer(Model.readerData);
+
+            if (patient.groupList != null) { FillList(); }
         }
 
         public void FillStatusBox()

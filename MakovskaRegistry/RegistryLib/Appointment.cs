@@ -67,12 +67,7 @@ namespace RegistryLib
 				int patientId = Convert.ToInt32(readerData[2]);
 				string dataTime = Convert.ToString(readerData[3]);
 
-				Service.serviceLists = new List<Service>();
-				while (readerData.Read())
-				{
-					Service service = new Service(Convert.ToString(readerData[4]), Convert.ToInt32(readerData[5]));
-					Service.serviceLists.Add(service);
-				}
+				Service.serviceLists = Service.DetailedAppointment(id);
 				appointment = new Appointment(appId, doctorId, patientId, dataTime, Service.serviceLists);
 				return appointment;
 			}

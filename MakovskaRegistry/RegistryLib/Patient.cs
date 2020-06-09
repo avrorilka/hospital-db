@@ -230,7 +230,7 @@ namespace RegistryLib
 					Privileged_group.patientLists.Add(group);
 				}
 
-				if (statusId != 0)
+				if (statusId == 0)
 				{
 					patient = new Patient(cardNumb, name, surname, middleName, birthDate, phoneNumb, adress,
 									  Privileged_group.patientLists);

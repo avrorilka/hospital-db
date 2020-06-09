@@ -54,9 +54,18 @@ namespace Hospital.View
         public void FillDetailedInfo(int id)
         {
             appointment = Appointment.DetailedAppointment(id);
+
             textBoxCardNumb.Text = Convert.ToString(appointment.id);
+            textBoxDateTime.Text = appointment.dataTime;
+
             FillDoctorDataGrid(appointment.doctorId);
             FillPatientDataGrid(appointment.patientId);
+
+            foreach (var service in appointment.serviceList)
+            {
+                string info = service.name + " " + service.price;
+                listBoxServises.Items.Add(info);
+            }
 
         }
     }

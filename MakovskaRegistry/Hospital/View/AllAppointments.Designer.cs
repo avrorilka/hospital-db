@@ -111,10 +111,10 @@
             this.comboBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.Items.AddRange(new object[] {
-            "за номером медкарти",
-            "за ім\'ям",
-            "за прізвищем",
-            "за датою народження"});
+            "за датою проведення",
+            "за номером мед картки",
+            "за прізвищем лікаря",
+            "за сервісом"});
             this.comboBoxSearch.Location = new System.Drawing.Point(87, 85);
             this.comboBoxSearch.Name = "comboBoxSearch";
             this.comboBoxSearch.Size = new System.Drawing.Size(193, 28);
