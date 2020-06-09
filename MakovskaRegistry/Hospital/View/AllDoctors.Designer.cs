@@ -53,13 +53,16 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonSearch.Location = new System.Drawing.Point(667, 57);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(63, 28);
             this.buttonSearch.TabIndex = 18;
             this.buttonSearch.Text = "->";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // labelTitle
@@ -104,6 +107,7 @@
             // comboBoxSearch
             // 
             this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.Items.AddRange(new object[] {
@@ -131,6 +135,9 @@
             // 
             this.dataGridViewDoctors.AllowUserToAddRows = false;
             this.dataGridViewDoctors.AllowUserToDeleteRows = false;
+            this.dataGridViewDoctors.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewDoctors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewDoctors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDoctors.Location = new System.Drawing.Point(206, 109);
             this.dataGridViewDoctors.Name = "dataGridViewDoctors";

@@ -24,6 +24,12 @@ namespace Hospital.View
         {
             DataTable table = Doctor.AllMembersTable();
             dataGridViewDoctors.DataSource = table;
+
+            dataGridViewDoctors.Columns[0].Width = 60;
+            dataGridViewDoctors.Columns[4].Width = 140;
+
+            dataGridViewDoctors.RowsDefaultCellStyle.BackColor = Color.PowderBlue;
+            dataGridViewDoctors.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)

@@ -55,6 +55,9 @@
             // 
             this.dataGridViewPatients.AllowUserToAddRows = false;
             this.dataGridViewPatients.AllowUserToDeleteRows = false;
+            this.dataGridViewPatients.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewPatients.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewPatients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPatients.Location = new System.Drawing.Point(236, 114);
             this.dataGridViewPatients.Name = "dataGridViewPatients";
@@ -69,6 +72,7 @@
             // comboBoxSearch
             // 
             this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.Items.AddRange(new object[] {
@@ -122,13 +126,16 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSearch.Location = new System.Drawing.Point(593, 62);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(63, 28);
             this.buttonSearch.TabIndex = 9;
             this.buttonSearch.Text = "->";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonAddPatient

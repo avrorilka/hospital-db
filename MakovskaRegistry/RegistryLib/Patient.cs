@@ -222,13 +222,8 @@ namespace RegistryLib
 				if (readerData[7] != DBNull.Value)
 					statusId = Convert.ToInt32(readerData[7]);
 
-				Privileged_group.patientLists = new List<Privileged_group>();
-
-				while (readerData.Read())
-				{
-					Privileged_group group = new Privileged_group(Convert.ToInt32(readerData[8]), Convert.ToString(readerData[9]), Convert.ToDouble(readerData[10]));
-					Privileged_group.patientLists.Add(group);
-				}
+				if (readerData[8] != DBNull.Value)
+					Privileged_group.patientLists = Privileged_group.DetailedPatient(card_number);
 
 				if (statusId == 0)
 				{

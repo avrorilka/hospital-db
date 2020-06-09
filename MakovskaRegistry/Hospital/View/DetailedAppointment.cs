@@ -14,6 +14,8 @@ namespace Hospital.View
     public partial class DetailedAppointment : Form
     {
         Appointment appointment;
+        Doctor doctor;
+        Patient patient;
 
         public DetailedAppointment(int id)
         {
@@ -23,7 +25,7 @@ namespace Hospital.View
 
         public void FillDoctorDataGrid(int doctorId)
         {
-            Doctor doctor = Doctor.DetailedDoctor(doctorId);
+            doctor = Doctor.DetailedDoctor(doctorId);
             DataTable table = new DataTable();
 
             table.Columns.Add("Номер каб");
@@ -38,7 +40,7 @@ namespace Hospital.View
         }
         public void FillPatientDataGrid(int patientId)
         {
-            Patient patient = Patient.DetailedPatient(patientId);
+            patient = Patient.DetailedPatient(patientId);
             DataTable table = new DataTable();
 
             table.Columns.Add("№ картки");
@@ -49,6 +51,7 @@ namespace Hospital.View
             
             dataGridViewPatients.DataSource = table;
             dataGridViewPatients.Columns[0].Width = 50;
+            dataGridViewPatients.Columns[3].Width = 130;
         }
 
         public void FillDetailedInfo(int id)
@@ -58,15 +61,57 @@ namespace Hospital.View
             textBoxCardNumb.Text = Convert.ToString(appointment.id);
             textBoxDateTime.Text = appointment.dataTime;
 
-            FillDoctorDataGrid(appointment.doctorId);
-            FillPatientDataGrid(appointment.patientId);
+            FillDoctorDataGrid(appointment.doctorId.id);
+            FillPatientDataGrid(appointment.patientId.card_number);
 
             foreach (var service in appointment.serviceList)
             {
-                string info = service.name + " " + service.price;
+                string info = service.name + "    " + service.price + " грн";
                 listBoxServises.Items.Add(info);
             }
+            textBoxPrise.Text = Convert.ToString(CountPrise()) + " грн";
+        }
 
+        public double CountPrise()
+        {
+            double maxDiscount = 0, discount, sum = 0;
+            foreach (var group in patient.groupList)
+            {
+                discount = group.discountPercent;
+                if (discount > maxDiscount)
+                    maxDiscount = discount;
+            }
+
+            foreach (var service in appointment.serviceList)
+            {
+                sum += service.price;
+            }
+            sum = sum - (sum * maxDiscount / 100);
+            return sum;
+        }
+
+        private void DetailsDoctor_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDoctors.SelectedRows.Count == 1)
+            {
+                int doctirId = Convert.ToInt32(appointment.doctorId.id);
+
+                DetailedDoctor form = new DetailedDoctor(doctirId);
+                form.Show();
+            }
+        }
+
+        private void DetailsPatient_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPatients.SelectedRows.Count == 1)
+            {
+                int rowIndex = dataGridViewPatients.CurrentCell.RowIndex;
+
+                int card_number = Convert.ToInt32(dataGridViewPatients.Rows[rowIndex].Cells[0].Value);
+
+                DetailedPatient form = new DetailedPatient(card_number);
+                form.Show();
+            }
         }
     }
 }

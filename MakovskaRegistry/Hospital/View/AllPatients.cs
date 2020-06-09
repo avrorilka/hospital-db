@@ -25,6 +25,13 @@ namespace Hospital
         {
             DataTable table = Patient.AllMembersTable();
             dataGridViewPatients.DataSource = table;
+
+            dataGridViewPatients.Columns[0].Width = 60;
+            dataGridViewPatients.Columns[1].Width = 120;
+            dataGridViewPatients.Columns[2].Width = 120;
+
+            dataGridViewPatients.RowsDefaultCellStyle.BackColor = Color.PowderBlue;
+            dataGridViewPatients.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
         private void Details_Click(object sender, EventArgs e)

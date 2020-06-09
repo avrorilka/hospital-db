@@ -71,7 +71,8 @@ namespace Hospital.View
         {
             foreach (var group in patient.groupList)
             {
-                listBoxGroup.Items.Add(group.name);
+                string info = group.name + "     (знижка: " + group.discountPercent + "%)";
+                listBoxGroup.Items.Add(info);
             }
         }
 

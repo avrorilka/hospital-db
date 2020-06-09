@@ -171,50 +171,50 @@ namespace RegistryLib
 		}
 
 		public static DataTable SearchDoctor(int index, string text)
+		{
+			text = text.Trim();
+			DataTable table = new DataTable();
+			switch (index)
 			{
-				text = text.Trim();
-				DataTable table = new DataTable();
-				switch (index)
-				{
-					case 0:
-						{
-							readerData = AllMembers(DoctorString() +
-										$"WHERE Doctor.first_name " +
-										$"LIKE '%{text}%'");
-							table = CreateTable(readerData);
+				case 0:
+					{
+						readerData = AllMembers(DoctorString() +
+									$"WHERE Doctor.first_name " +
+									$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
 
-							break;
-						}
-					case 1:
-						{
-							readerData = AllMembers(DoctorString() +
-										$"WHERE Doctor.surname " +
-										$"LIKE '%{text}%'");
-							table = CreateTable(readerData);
+						break;
+					}
+				case 1:
+					{
+						readerData = AllMembers(DoctorString() +
+									$"WHERE Doctor.surname " +
+									$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
 
-							break;
-						}
-					case 2:
-						{
-							readerData = AllMembers(DoctorString() +
-													"WHERE Cabinet.cabinet_number " +
-													$"LIKE '%{text}%'");
-							table = CreateTable(readerData);
+						break;
+					}
+				case 2:
+					{
+						readerData = AllMembers(DoctorString() +
+												"WHERE Cabinet.cabinet_number " +
+												$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
 
-							break;
-						}
-					case 3:
-						{
-							readerData = AllMembers(DoctorString() +
-													"WHERE Type.name " +
-													$"LIKE '%{text}%'");
-							table = CreateTable(readerData);
+						break;
+					}
+				case 3:
+					{
+						readerData = AllMembers(DoctorString() +
+												"WHERE Type.name " +
+												$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
 
-							break;
-						}
-				}
-				return table;
+						break;
+					}
 			}
+			return table;
+		}
 
 		public static void EditDoctor(Doctor doctor, int oldCab)
 		{

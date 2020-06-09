@@ -9,16 +9,16 @@ namespace RegistryLib
 	public class Appointment : Model
 	{
 		public int id { get; set; }
-		public int patientId { get; set; }
-		public int doctorId { get; set; }
+		public Patient patientId { get; set; }
+		public Doctor doctorId { get; set; }
 		public string dataTime { get; set; }
 		public List<Service> serviceList;
 
 		public Appointment(int Id, int Doctor_id, int Patient_id, string Data_time, List<Service> ServiceList)
 		{
 			this.id = Id;
-			this.doctorId = Doctor_id;
-			this.patientId = Patient_id;
+			this.doctorId = new Doctor(Doctor_id);
+			this.patientId = new Patient(Patient_id);
 			this.dataTime = Data_time;
 			this.serviceList = ServiceList;
 		}
@@ -39,13 +39,7 @@ namespace RegistryLib
 		}
 		public static DataTable AllMembersTable()
 		{
-			readerData = AllMembers("SELECT Appointment_Service.appointment, Service.name, " +
-									"Service.price, Appointment.data_time " +
-									"FROM Appointment_Service " +
-									"LEFT OUTER JOIN " +
-									"Appointment ON Appointment_Service.appointment = Appointment.id " +
-									"LEFT OUTER JOIN " +
-									"Service ON Appointment_Service.service_id = Service.id");
+			readerData = AllMembers(AppointmentString());
 			DataTable table = CreateTable(readerData);
 			return table;
 		}
@@ -73,6 +67,64 @@ namespace RegistryLib
 			}
 			Appointment newApp = new Appointment();
 			return newApp;
+		}
+
+		public static string AppointmentString()
+		{
+			return "SELECT Appointment_Service.appointment, Service.name, Service.price, Appointment.data_time, " +
+					"Appointment.doctor_id, Appointment.patient_id, Doctor.surname " +
+					"FROM Appointment_Service " +
+					"LEFT OUTER JOIN " +
+					"Appointment ON Appointment_Service.appointment = Appointment.id " +
+					"LEFT OUTER JOIN " +
+					"Service ON Appointment_Service.service_id = Service.id " +
+					"LEFT OUTER JOIN " +
+					"Doctor ON Appointment.doctor_id = Doctor.id ";
+		}
+
+		public static DataTable SearchAppointment(int index, string text)
+		{
+			text = text.Trim();
+			DataTable table = new DataTable();
+			switch (index)
+			{
+				case 0:
+					{
+						readerData = AllMembers(AppointmentString() +
+									$"WHERE Appointment.data_time " +
+									$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 1:
+					{
+						readerData = AllMembers(AppointmentString() +
+									$"WHERE Appointment.patient_id = {text}");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 2:
+					{
+						readerData = AllMembers(AppointmentString() +
+									$"WHERE Doctor.surname " +
+									$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
+
+						break;
+					}
+				case 3:
+					{
+						readerData = AllMembers(AppointmentString() +
+												"WHERE Service.name " +
+												$"LIKE '%{text}%'");
+						table = CreateTable(readerData);
+
+						break;
+					}
+			}
+			return table;
 		}
 	}
 }

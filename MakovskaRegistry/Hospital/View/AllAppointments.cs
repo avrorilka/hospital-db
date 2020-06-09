@@ -17,12 +17,20 @@ namespace Hospital.View
         {
             InitializeComponent();
             FillDataGrid();
+            comboBoxSearch.SelectedIndex = 0;
         }
         public void FillDataGrid()
         {
             DataTable table = Appointment.AllMembersTable();
             dataGridViewAppointments.DataSource = table;
+
+            dataGridViewAppointments.Columns[0].Width = 60;
+            dataGridViewAppointments.Columns[1].Width = 190;
+            dataGridViewAppointments.Columns[2].Width = 60;
             dataGridViewAppointments.Columns[3].Width = 130;
+
+            dataGridViewAppointments.RowsDefaultCellStyle.BackColor = Color.PowderBlue;
+            dataGridViewAppointments.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -32,10 +40,10 @@ namespace Hospital.View
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            //int index = comboBoxSearch.SelectedIndex;
-            //string text = textBoxSearch.Text;
-            //DataTable table = Patient.SearchPatient(index, text);
-            //dataGridViewPatients.DataSource = table;
+            int index = comboBoxSearch.SelectedIndex;
+            string text = textBoxSearch.Text;
+            DataTable table = Appointment.SearchAppointment(index, text);
+            dataGridViewAppointments.DataSource = table;
         }
 
         private void buttonAddAppointment_Click(object sender, EventArgs e)

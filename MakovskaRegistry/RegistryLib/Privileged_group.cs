@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace RegistryLib
 {
-	public class Privileged_group
+	public class Privileged_group : Model
 	{
 		public int id { get; set; }
 		public string name { get; set; }
@@ -75,6 +75,29 @@ namespace RegistryLib
 			Model.Closer(Model.readerData);
 
 			return groupList;
+		}
+
+		public static List<Privileged_group> DetailedPatient(int card_number)
+		{
+			readerData = AllMembers($"SELECT Patient.card_number, Patient.first_name, Patient.surname, Patient.midlle_name, " +
+											$"Patient.birth_date, Patient.phone_number, Patient.address, Patient.status_id, " +
+											$"Privileged_group.id, Privileged_group.name, Privileged_group.discount_percent " +
+									$"FROM Patient " +
+									$"LEFT OUTER JOIN " +
+										$"Patient_Group ON Patient.card_number = Patient_Group.patient_id " +
+									$"LEFT OUTER JOIN " +
+										$"Privileged_group ON Patient_Group.group_id = Privileged_group.id " +
+									$"WHERE card_number = {card_number}");
+
+			patientLists = new List<Privileged_group>();
+
+			while (readerData.Read())
+			{
+				Privileged_group group = new Privileged_group(Convert.ToInt32(readerData[8]), Convert.ToString(readerData[9]), 
+																Convert.ToDouble(readerData[10]));
+				patientLists.Add(group);
+			}
+			return patientLists;
 		}
 	}
 }

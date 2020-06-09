@@ -44,6 +44,9 @@
             // 
             this.dataGridViewAppointments.AllowUserToAddRows = false;
             this.dataGridViewAppointments.AllowUserToDeleteRows = false;
+            this.dataGridViewAppointments.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewAppointments.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAppointments.Location = new System.Drawing.Point(207, 147);
             this.dataGridViewAppointments.Name = "dataGridViewAppointments";
@@ -70,21 +73,24 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(219, 32);
+            this.labelTitle.Location = new System.Drawing.Point(264, 28);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(239, 25);
+            this.labelTitle.Size = new System.Drawing.Size(132, 25);
             this.labelTitle.TabIndex = 14;
-            this.labelTitle.Text = "Список всіх записів";
+            this.labelTitle.Text = "Всі записи";
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonSearch.Location = new System.Drawing.Point(593, 83);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(63, 28);
             this.buttonSearch.TabIndex = 18;
             this.buttonSearch.Text = "->";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // textBoxSearch
@@ -108,6 +114,7 @@
             // comboBoxSearch
             // 
             this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSearch.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.Items.AddRange(new object[] {
