@@ -78,6 +78,16 @@ namespace RegistryLib
 			this.type = new Type(TypeName);
 			this.schedule = new Schedule(TimeStart, TimeEnd);
 		}
+		public Doctor(string First_name, string Surname, string Middle_name,
+					  int CabinetNumb, string TypeName, string TimeStart, string TimeEnd)
+		{
+			this.FirstName = First_name;
+			this.Surname = Surname;
+			this.MiddleName = Middle_name;
+			this.cabinet = new Cabinet(CabinetNumb);
+			this.type = new Type(TypeName);
+			this.schedule = new Schedule(TimeStart, TimeEnd);
+		}
 		public Doctor(int Id)
 		{
 			this.id = Id;
@@ -91,7 +101,7 @@ namespace RegistryLib
 					"Cabinet.cabinet_number, Type.name " +
 					"From Doctor " +
 					"LEFT OUTER JOIN " +
-					"Cabinet ON Doctor.cabinet_id = Cabinet.type_id " +
+					"Cabinet ON Doctor.cabinet_id = Cabinet.id " +
 					"LEFT OUTER JOIN " +
 					"Type ON Cabinet.type_id = Type.id ";
 		}
@@ -121,8 +131,11 @@ namespace RegistryLib
 
 		public static void DeleteDoctor(int id)
 		{
+			EditMember($"DELETE FROM Schedule " +
+					   $"WHERE doctor_id = {id}");
+
 			EditMember($"DELETE FROM Doctor " +
-					   $"WHERE id = {id};");
+					   $"WHERE id = {id}");
 		}
 
 		public static Doctor DetailedDoctor(int id)
@@ -132,7 +145,7 @@ namespace RegistryLib
 									$"Cabinet.cabinet_number, Type.name, Schedule.time_start, Schedule.time_end " +
 									$"From Doctor " +
 									$"LEFT OUTER JOIN " +
-									$"Cabinet ON Doctor.cabinet_id = Cabinet.type_id " +
+									$"Cabinet ON Doctor.cabinet_id = Cabinet.id " +
 									$"LEFT OUTER JOIN " +
 									$"Type ON Cabinet.type_id = Type.id " +
 									$"LEFT OUTER JOIN " +
@@ -157,8 +170,7 @@ namespace RegistryLib
 			return NEW;
 		}
 
-
-			public static DataTable SearchDoctor(int index, string text)
+		public static DataTable SearchDoctor(int index, string text)
 			{
 				text = text.Trim();
 				DataTable table = new DataTable();
@@ -204,7 +216,41 @@ namespace RegistryLib
 				return table;
 			}
 
+		public static void EditDoctor(Doctor doctor, int oldCab)
+		{
+			EditMember($"UPDATE Doctor SET first_name = \"{doctor.firstName}\", surname = \"{doctor.surname}\", " +
+						$"middle_name = \"{doctor.middleName}\" " +
+						$"WHERE id = {doctor.id}");
 
+			EditMember($"UPDATE Schedule SET time_start = \"{doctor.schedule.TimeStart}\", time_end  = \"{doctor.schedule.TimeEnd}\"" +
+						$"WHERE doctor_id = {doctor.id}");
+
+			readerData = AllMembers($"SELECT id FROM Type " +
+									$"WHERE name = \"{doctor.type}\"");
+			int typeId = 1;
+			while (readerData.Read())
+			{
+				typeId = Convert.ToInt32(readerData[0]);
+			}
+			
+			EditMember($"UPDATE Cabinet SET type_id = \"{typeId}\", cabinet_number = \"{doctor.cabinet.cabinetNumber}\" " +
+						$"WHERE cabinet_number = \"{oldCab}\"");
+		}
+
+		public static void InsertNewDoctor(Doctor doctor, int typeId)
+		{
+
+			EditMember($"INSERT INTO Cabinet (type_id, cabinet_number) " +
+						$"VALUES (\"{typeId}\", \"{doctor.cabinet.cabinetNumber}\")");
+			int doctorCabId = GetLastMemberId("SELECT max(id) FROM Cabinet");
+
+			EditMember($"INSERT INTO Doctor(first_name, surname, middle_name, cabinet_id) " +
+						$"VALUES (\"{doctor.FirstName}\", \"{doctor.Surname}\", \"{doctor.MiddleName}\", \"{doctorCabId}\")");
+			int doctorId = GetLastMemberId("SELECT max(id) FROM Doctor");
+
+			EditMember($"INSERT INTO Schedule(doctor_id, time_start, time_end)" +
+						$"VALUES (\"{doctorId}\", \"{doctor.schedule.TimeStart}\", \"{doctor.schedule.TimeEnd}\")");
+		}
 
 	}
 }

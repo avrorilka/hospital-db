@@ -132,9 +132,16 @@ namespace Hospital.View
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(textBoxCardNumb.Text);
-            Patient.DeletePatient(id);
-            this.Close();
+            try
+            {
+                int id = Convert.ToInt32(textBoxCardNumb.Text);
+                Patient.DeletePatient(id);
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо видалити", "Помилка", MessageBoxButtons.OK);
+            }
         }
 
         private bool CheckIndex() 

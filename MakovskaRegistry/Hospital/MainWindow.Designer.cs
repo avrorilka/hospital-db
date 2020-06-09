@@ -32,6 +32,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonAllDoctors = new System.Windows.Forms.Button();
+            this.buttonAppointments = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPatients
@@ -60,7 +61,7 @@
             // 
             this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonExit.ForeColor = System.Drawing.Color.White;
-            this.buttonExit.Location = new System.Drawing.Point(108, 382);
+            this.buttonExit.Location = new System.Drawing.Point(108, 371);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(198, 58);
@@ -80,11 +81,23 @@
             this.buttonAllDoctors.UseVisualStyleBackColor = true;
             this.buttonAllDoctors.Click += new System.EventHandler(this.buttonAllDoctors_Click);
             // 
+            // buttonAppointments
+            // 
+            this.buttonAppointments.Location = new System.Drawing.Point(108, 288);
+            this.buttonAppointments.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAppointments.Name = "buttonAppointments";
+            this.buttonAppointments.Size = new System.Drawing.Size(198, 58);
+            this.buttonAppointments.TabIndex = 4;
+            this.buttonAppointments.Text = "Всі записи";
+            this.buttonAppointments.UseVisualStyleBackColor = true;
+            this.buttonAppointments.Click += new System.EventHandler(this.buttonAppointments_Click);
+            // 
             // HospitalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 464);
+            this.Controls.Add(this.buttonAppointments);
             this.Controls.Add(this.buttonAllDoctors);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.labelTitle);
@@ -106,6 +119,7 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonAllDoctors;
+        private System.Windows.Forms.Button buttonAppointments;
     }
 }
 

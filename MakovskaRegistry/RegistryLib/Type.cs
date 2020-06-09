@@ -22,5 +22,18 @@ namespace RegistryLib
 		{
 			this.id = Id;
 		}
+
+		public static List<string> FillTypeBox()
+		{
+			Model.readerData = Model.AllMembers("SELECT name FROM Type");
+			List<string> typeList = new List<string>();
+			while (Model.readerData.Read())
+			{
+				typeList.Add(Convert.ToString(Model.readerData[0]));
+			}
+			Model.Closer(Model.readerData);
+
+			return typeList;
+		}
 	}
 }

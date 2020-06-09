@@ -19,7 +19,6 @@ namespace Hospital
             comboBoxSearch.SelectedIndex = 0;
 
             FillDataGrid();
-         
         }
 
         public void FillDataGrid()

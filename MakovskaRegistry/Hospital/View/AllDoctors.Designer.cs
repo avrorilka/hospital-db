@@ -49,6 +49,7 @@
             this.buttonAddDoctor.TabIndex = 19;
             this.buttonAddDoctor.Text = "Додати лікаря";
             this.buttonAddDoctor.UseVisualStyleBackColor = true;
+            this.buttonAddDoctor.Click += new System.EventHandler(this.buttonAddDoctor_Click);
             // 
             // buttonSearch
             // 

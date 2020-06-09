@@ -23,7 +23,7 @@ namespace RegistryLib
 		}
 		public Cabinet(int Cabinet_number)
 		{
-			this.id = Cabinet_number;
+			this.cabinetNumber = Cabinet_number;
 		}
 	}
 }

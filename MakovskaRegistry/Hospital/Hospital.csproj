@@ -49,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\AddDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddDoctor.Designer.cs">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AddPatient.Designer.cs">
       <DependentUpon>AddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AllAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AllAppointments.Designer.cs">
+      <DependentUpon>AllAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AllDoctors.cs">
       <SubType>Form</SubType>
@@ -75,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DetailedAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailedAppointment.Designer.cs">
+      <DependentUpon>DetailedAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailedDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,14 +120,23 @@
     <Content Include="hospital.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="View\AddDoctor.resx">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AllAppointments.resx">
+      <DependentUpon>AllAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AllDoctors.resx">
       <DependentUpon>AllDoctors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AllPatients.resx">
       <DependentUpon>AllPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailedAppointment.resx">
+      <DependentUpon>DetailedAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailedDoctor.resx">
       <DependentUpon>DetailedDoctor.cs</DependentUpon>

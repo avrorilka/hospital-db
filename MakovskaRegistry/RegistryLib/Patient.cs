@@ -191,6 +191,9 @@ namespace RegistryLib
 		{
 			EditMember($"DELETE FROM Patient " +
 					   $"WHERE card_number = {card_number};");
+
+			EditMember($"DELETE FROM Patient_Group " +
+					   $"WHERE patient_id = {card_number};");
 		}
 
 		public static Patient DetailedPatient(int card_number)

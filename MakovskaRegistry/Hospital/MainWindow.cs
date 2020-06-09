@@ -36,5 +36,11 @@ namespace Hospital
             AllDoctors form = new AllDoctors();
             form.Show();
         }
+
+        private void buttonAppointments_Click(object sender, EventArgs e)
+        {
+            AllAppointments form = new AllAppointments();
+            form.Show();
+        }
     }
 }

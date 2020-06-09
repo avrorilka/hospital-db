@@ -52,5 +52,11 @@ namespace Hospital.View
                 form.Show();
             }
         }
+
+        private void buttonAddDoctor_Click(object sender, EventArgs e)
+        {
+            AddDoctor form = new AddDoctor();
+            form.Show();
+        }
     }
 }
