@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPatient));
             this.groupBoxGeneralData = new System.Windows.Forms.GroupBox();
+            this.labelExampleAddress = new System.Windows.Forms.Label();
             this.labelBirth = new System.Windows.Forms.Label();
+            this.labelExamplePhome = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
+            this.labelExampleBDay = new System.Windows.Forms.Label();
             this.labelAddress = new System.Windows.Forms.Label();
             this.textBoxBirth = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
@@ -45,9 +49,6 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.labelExampleBDay = new System.Windows.Forms.Label();
-            this.labelExamplePhome = new System.Windows.Forms.Label();
-            this.labelExampleAddress = new System.Windows.Forms.Label();
             this.groupBoxGeneralData.SuspendLayout();
             this.groupBoxFullName.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,16 @@
             this.groupBoxGeneralData.TabStop = false;
             this.groupBoxGeneralData.Text = "Загальні данні";
             // 
+            // labelExampleAddress
+            // 
+            this.labelExampleAddress.AutoSize = true;
+            this.labelExampleAddress.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExampleAddress.Location = new System.Drawing.Point(165, 105);
+            this.labelExampleAddress.Name = "labelExampleAddress";
+            this.labelExampleAddress.Size = new System.Drawing.Size(193, 17);
+            this.labelExampleAddress.TabIndex = 31;
+            this.labelExampleAddress.Text = "вул. Київська 10, кв. 103";
+            // 
             // labelBirth
             // 
             this.labelBirth.AutoSize = true;
@@ -81,6 +92,16 @@
             this.labelBirth.TabIndex = 5;
             this.labelBirth.Text = "Дата народження:";
             // 
+            // labelExamplePhome
+            // 
+            this.labelExamplePhome.AutoSize = true;
+            this.labelExamplePhome.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExamplePhome.Location = new System.Drawing.Point(243, 55);
+            this.labelExamplePhome.Name = "labelExamplePhome";
+            this.labelExamplePhome.Size = new System.Drawing.Size(74, 17);
+            this.labelExamplePhome.TabIndex = 30;
+            this.labelExamplePhome.Text = "55-55-55";
+            // 
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
@@ -90,6 +111,16 @@
             this.labelPhone.Size = new System.Drawing.Size(162, 20);
             this.labelPhone.TabIndex = 6;
             this.labelPhone.Text = "Номер телефону:";
+            // 
+            // labelExampleBDay
+            // 
+            this.labelExampleBDay.AutoSize = true;
+            this.labelExampleBDay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelExampleBDay.Location = new System.Drawing.Point(243, 8);
+            this.labelExampleBDay.Name = "labelExampleBDay";
+            this.labelExampleBDay.Size = new System.Drawing.Size(90, 17);
+            this.labelExampleBDay.TabIndex = 15;
+            this.labelExampleBDay.Text = "03.05.2007";
             // 
             // labelAddress
             // 
@@ -225,36 +256,6 @@
             this.labelTitle.TabIndex = 22;
             this.labelTitle.Text = "Додати нового пацієнта до бази";
             // 
-            // labelExampleBDay
-            // 
-            this.labelExampleBDay.AutoSize = true;
-            this.labelExampleBDay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelExampleBDay.Location = new System.Drawing.Point(243, 8);
-            this.labelExampleBDay.Name = "labelExampleBDay";
-            this.labelExampleBDay.Size = new System.Drawing.Size(90, 17);
-            this.labelExampleBDay.TabIndex = 15;
-            this.labelExampleBDay.Text = "03.05.2007";
-            // 
-            // labelExamplePhome
-            // 
-            this.labelExamplePhome.AutoSize = true;
-            this.labelExamplePhome.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelExamplePhome.Location = new System.Drawing.Point(243, 55);
-            this.labelExamplePhome.Name = "labelExamplePhome";
-            this.labelExamplePhome.Size = new System.Drawing.Size(74, 17);
-            this.labelExamplePhome.TabIndex = 30;
-            this.labelExamplePhome.Text = "55-55-55";
-            // 
-            // labelExampleAddress
-            // 
-            this.labelExampleAddress.AutoSize = true;
-            this.labelExampleAddress.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelExampleAddress.Location = new System.Drawing.Point(165, 105);
-            this.labelExampleAddress.Name = "labelExampleAddress";
-            this.labelExampleAddress.Size = new System.Drawing.Size(193, 17);
-            this.labelExampleAddress.TabIndex = 31;
-            this.labelExampleAddress.Text = "вул. Київська 10, кв. 103";
-            // 
             // AddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,11 +266,13 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(861, 332);
             this.MinimumSize = new System.Drawing.Size(861, 332);
             this.Name = "AddPatient";
-            this.Text = "AddPatient";
+            this.Text = "Додати пацієнта";
             this.groupBoxGeneralData.ResumeLayout(false);
             this.groupBoxGeneralData.PerformLayout();
             this.groupBoxFullName.ResumeLayout(false);

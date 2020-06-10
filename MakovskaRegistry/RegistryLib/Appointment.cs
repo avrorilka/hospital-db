@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace RegistryLib
@@ -101,21 +100,33 @@ namespace RegistryLib
 
 		public static void EditAppointment(Appointment appointment)
 		{
-			EditMember($"UPDATE Appointment SET data_time = \"{appointment.dataTime}\" " +
-						$"WHERE id = {appointment.id}");
+			if(CheckAppointmentData(appointment) == true)
+				EditMember($"UPDATE Appointment SET data_time = \"{appointment.dataTime}\" " +
+							$"WHERE id = {appointment.id}");
 		}
-		public static void CheckAppointmentData(Appointment appointment)
+		public static bool CheckAppointmentData(Appointment appointment)
 		{
 			readerData = AllMembers($"SELECT id from Appointment " +
 					$"Where doctor_id = \"{appointment.doctorId.id}\" AND data_time = \"{appointment.dataTime}\"");
 			while (readerData.Read())
 			{
 				if (readerData[0] != DBNull.Value)
-					throw new ArgumentException();
+					return false;
 
 				else
-					EditAppointment(appointment); 
+				{
+					Doctor doctor = Doctor.DetailedDoctor(appointment.doctorId.id);
+					int start = Convert.ToInt32(doctor.schedule.TimeStart.Split(':')[0]);
+					int end = Convert.ToInt32(doctor.schedule.TimeEnd.Split(':')[0]);
+
+					string appTime = appointment.dataTime.Split(' ')[1];
+					int time = Convert.ToInt32(appTime.Split(':')[0]);
+
+					if(time > end && time < start) 
+						return true;
+				}
 			}
+			return false;
 		}
 
 		public static string AppointmentString()
@@ -187,12 +198,15 @@ namespace RegistryLib
 
 		public static void InsertNewAppointment(Appointment appointment, int serviceId)
 		{
-			EditMember("INSERT INTO Appointment(doctor_id, patient_id, data_time) " +
+			if (CheckAppointmentData(appointment) == true)
+			{
+				EditMember("INSERT INTO Appointment(doctor_id, patient_id, data_time) " +
 						 $"VALUES(\"{appointment.doctorId.id}\", \"{appointment.patientId.card_number}\", " +
 						 $"\"{appointment.dataTime}\")");
 
-			int appId = GetLastMemberId("SELECT max(id) FROM Appointment");
-			Service.AddService(appId, serviceId);
+				int appId = GetLastMemberId("SELECT max(id) FROM Appointment");
+				Service.AddService(appId, serviceId);
+			}	
 		}
 	}
 }

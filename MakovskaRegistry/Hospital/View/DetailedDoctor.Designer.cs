@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailedDoctor));
             this.textBoxCabinet = new System.Windows.Forms.TextBox();
             this.labelCabinet = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.textBoxMiddleName = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.labelType = new System.Windows.Forms.Label();
             this.labelStartTime = new System.Windows.Forms.Label();
             this.labelEndTime = new System.Windows.Forms.Label();
@@ -47,7 +49,6 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.groupBoxFullName.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +168,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Загальна інформація";
             // 
+            // comboBoxType
+            // 
+            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxType.Enabled = false;
+            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(155, 29);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(223, 26);
+            this.comboBoxType.TabIndex = 19;
+            // 
             // labelType
             // 
             this.labelType.AutoSize = true;
@@ -250,17 +262,6 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // comboBoxType
-            // 
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.Enabled = false;
-            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(155, 29);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(223, 26);
-            this.comboBoxType.TabIndex = 19;
-            // 
             // DetailedDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,11 +275,12 @@
             this.Controls.Add(this.textBoxCabinet);
             this.Controls.Add(this.labelCabinet);
             this.Controls.Add(this.labelTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(447, 566);
             this.MinimumSize = new System.Drawing.Size(447, 566);
             this.Name = "DetailedDoctor";
-            this.Text = "DetailedDoctor";
+            this.Text = "Детальна інформація про лікаря";
             this.groupBoxFullName.ResumeLayout(false);
             this.groupBoxFullName.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -73,6 +73,12 @@ namespace Hospital.View
             DataTable table = Patient.SearchPatient(index, text);
             dataGridViewPatients.DataSource = table;
         }
+        private void buttonSearchApp_Click(object sender, EventArgs e)
+        {
+            string text = textBoxSearchApp.Text;
+            DataTable table = Service.SearchAppointment(text);
+            dataGridViewAllServises.DataSource = table;
+        }
 
         private void DetailsDoctor_Click(object sender, EventArgs e)
         {
@@ -166,5 +172,6 @@ namespace Hospital.View
                 MessageBox.Show("Помилка введення значень!", "Помилка", MessageBoxButtons.OK);
             }
         }
+
     }
 }

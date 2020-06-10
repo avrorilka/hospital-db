@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HospitalForm));
             this.buttonPatients = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -37,20 +38,23 @@
             // 
             // buttonPatients
             // 
+            this.buttonPatients.BackColor = System.Drawing.Color.Silver;
+            this.buttonPatients.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonPatients.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonPatients.Location = new System.Drawing.Point(108, 118);
             this.buttonPatients.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPatients.Name = "buttonPatients";
             this.buttonPatients.Size = new System.Drawing.Size(198, 58);
             this.buttonPatients.TabIndex = 0;
             this.buttonPatients.Text = "Всі пацієнти";
-            this.buttonPatients.UseVisualStyleBackColor = true;
+            this.buttonPatients.UseVisualStyleBackColor = false;
             this.buttonPatients.Click += new System.EventHandler(this.buttonPatients_Click);
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.Location = new System.Drawing.Point(17, 37);
+            this.labelTitle.Location = new System.Drawing.Point(63, 49);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(405, 29);
@@ -60,6 +64,8 @@
             // buttonExit
             // 
             this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonExit.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonExit.ForeColor = System.Drawing.Color.White;
             this.buttonExit.Location = new System.Drawing.Point(108, 371);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
@@ -72,24 +78,30 @@
             // 
             // buttonAllDoctors
             // 
+            this.buttonAllDoctors.BackColor = System.Drawing.Color.Silver;
+            this.buttonAllDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAllDoctors.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAllDoctors.Location = new System.Drawing.Point(108, 203);
             this.buttonAllDoctors.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAllDoctors.Name = "buttonAllDoctors";
             this.buttonAllDoctors.Size = new System.Drawing.Size(198, 58);
             this.buttonAllDoctors.TabIndex = 3;
             this.buttonAllDoctors.Text = "Всі лікарі";
-            this.buttonAllDoctors.UseVisualStyleBackColor = true;
+            this.buttonAllDoctors.UseVisualStyleBackColor = false;
             this.buttonAllDoctors.Click += new System.EventHandler(this.buttonAllDoctors_Click);
             // 
             // buttonAppointments
             // 
+            this.buttonAppointments.BackColor = System.Drawing.Color.Silver;
+            this.buttonAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAppointments.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAppointments.Location = new System.Drawing.Point(108, 288);
             this.buttonAppointments.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAppointments.Name = "buttonAppointments";
             this.buttonAppointments.Size = new System.Drawing.Size(198, 58);
             this.buttonAppointments.TabIndex = 4;
             this.buttonAppointments.Text = "Всі записи";
-            this.buttonAppointments.UseVisualStyleBackColor = true;
+            this.buttonAppointments.UseVisualStyleBackColor = false;
             this.buttonAppointments.Click += new System.EventHandler(this.buttonAppointments_Click);
             // 
             // HospitalForm
@@ -103,6 +115,7 @@
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonPatients);
             this.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(451, 511);
             this.MinimumSize = new System.Drawing.Size(451, 511);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailedPatient));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelCardNumb = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
@@ -378,11 +379,12 @@
             this.Controls.Add(this.textBoxCardNumb);
             this.Controls.Add(this.labelCardNumb);
             this.Controls.Add(this.labelTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(845, 594);
             this.MinimumSize = new System.Drawing.Size(845, 594);
             this.Name = "DetailedPatient";
-            this.Text = "DetailedPatient";
+            this.Text = "Детальна інформація про пацієнта";
             this.groupBoxFullName.ResumeLayout(false);
             this.groupBoxFullName.PerformLayout();
             this.groupBoxGeneralData.ResumeLayout(false);

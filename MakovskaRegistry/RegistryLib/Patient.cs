@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace RegistryLib
 {

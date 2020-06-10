@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace RegistryLib
 {
-	public class Schedule
+	public class Schedule : Model
 	{
 		string pattern;
 

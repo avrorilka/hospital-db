@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailedAppointment));
             this.labelTitle = new System.Windows.Forms.Label();
             this.textBoxNumb = new System.Windows.Forms.TextBox();
             this.labelNumb = new System.Windows.Forms.Label();
@@ -372,11 +373,12 @@
             this.Controls.Add(this.dataGridViewDoctors);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(763, 611);
             this.MinimumSize = new System.Drawing.Size(763, 611);
             this.Name = "DetailedAppointment";
-            this.Text = "DetailedAppointment";
+            this.Text = "Детальна інформація про запис";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).EndInit();
             this.groupBoxGeneralData.ResumeLayout(false);

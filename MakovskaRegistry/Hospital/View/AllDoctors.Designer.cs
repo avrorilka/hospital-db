@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllDoctors));
             this.buttonAddDoctor = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -164,11 +165,12 @@
             this.Controls.Add(this.Details);
             this.Controls.Add(this.dataGridViewDoctors);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(768, 429);
             this.MinimumSize = new System.Drawing.Size(768, 429);
             this.Name = "AllDoctors";
-            this.Text = "AllDoctors";
+            this.Text = "Список всіх лікарів";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

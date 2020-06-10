@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.labelAvaliableServises = new System.Windows.Forms.Label();
             this.dataGridViewAllServises = new System.Windows.Forms.DataGridView();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -50,12 +51,15 @@
             this.labelSearchPatient = new System.Windows.Forms.Label();
             this.comboBoxsearchPatient = new System.Windows.Forms.ComboBox();
             this.groupBoxDoctor = new System.Windows.Forms.GroupBox();
-            this.groupBoxPatient = new System.Windows.Forms.GroupBox();
-            this.buttonAddDoctor = new System.Windows.Forms.Button();
-            this.buttonAddPAtient = new System.Windows.Forms.Button();
-            this.buttonRefreshPatients = new System.Windows.Forms.Button();
             this.buttonRefreshDoctors = new System.Windows.Forms.Button();
+            this.buttonAddDoctor = new System.Windows.Forms.Button();
+            this.groupBoxPatient = new System.Windows.Forms.GroupBox();
+            this.buttonRefreshPatients = new System.Windows.Forms.Button();
+            this.buttonAddPAtient = new System.Windows.Forms.Button();
             this.labelExampleBDay = new System.Windows.Forms.Label();
+            this.buttonSearchApp = new System.Windows.Forms.Button();
+            this.textBoxSearchApp = new System.Windows.Forms.TextBox();
+            this.labelSearchApp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllServises)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctors)).BeginInit();
@@ -67,7 +71,7 @@
             // 
             this.labelAvaliableServises.AutoSize = true;
             this.labelAvaliableServises.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAvaliableServises.Location = new System.Drawing.Point(381, 410);
+            this.labelAvaliableServises.Location = new System.Drawing.Point(591, 416);
             this.labelAvaliableServises.Name = "labelAvaliableServises";
             this.labelAvaliableServises.Size = new System.Drawing.Size(163, 20);
             this.labelAvaliableServises.TabIndex = 53;
@@ -80,7 +84,7 @@
             this.dataGridViewAllServises.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridViewAllServises.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewAllServises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAllServises.Location = new System.Drawing.Point(272, 437);
+            this.dataGridViewAllServises.Location = new System.Drawing.Point(366, 439);
             this.dataGridViewAllServises.Name = "dataGridViewAllServises";
             this.dataGridViewAllServises.ReadOnly = true;
             this.dataGridViewAllServises.RowHeadersVisible = false;
@@ -335,6 +339,32 @@
             this.groupBoxDoctor.TabStop = false;
             this.groupBoxDoctor.Text = "Лікар";
             // 
+            // buttonRefreshDoctors
+            // 
+            this.buttonRefreshDoctors.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonRefreshDoctors.BackgroundImage = global::Hospital.Properties.Resources.refresh;
+            this.buttonRefreshDoctors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRefreshDoctors.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRefreshDoctors.Location = new System.Drawing.Point(364, 26);
+            this.buttonRefreshDoctors.Name = "buttonRefreshDoctors";
+            this.buttonRefreshDoctors.Size = new System.Drawing.Size(40, 34);
+            this.buttonRefreshDoctors.TabIndex = 66;
+            this.buttonRefreshDoctors.UseVisualStyleBackColor = false;
+            this.buttonRefreshDoctors.Click += new System.EventHandler(this.buttonRefreshDoctors_Click);
+            // 
+            // buttonAddDoctor
+            // 
+            this.buttonAddDoctor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.buttonAddDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddDoctor.ForeColor = System.Drawing.Color.White;
+            this.buttonAddDoctor.Location = new System.Drawing.Point(319, 25);
+            this.buttonAddDoctor.Name = "buttonAddDoctor";
+            this.buttonAddDoctor.Size = new System.Drawing.Size(39, 35);
+            this.buttonAddDoctor.TabIndex = 63;
+            this.buttonAddDoctor.Text = "+";
+            this.buttonAddDoctor.UseVisualStyleBackColor = false;
+            this.buttonAddDoctor.Click += new System.EventHandler(this.buttonAddDoctor_Click);
+            // 
             // groupBoxPatient
             // 
             this.groupBoxPatient.Controls.Add(this.buttonRefreshPatients);
@@ -354,18 +384,18 @@
             this.groupBoxPatient.TabStop = false;
             this.groupBoxPatient.Text = "Пацієнт";
             // 
-            // buttonAddDoctor
+            // buttonRefreshPatients
             // 
-            this.buttonAddDoctor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.buttonAddDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddDoctor.ForeColor = System.Drawing.Color.White;
-            this.buttonAddDoctor.Location = new System.Drawing.Point(319, 25);
-            this.buttonAddDoctor.Name = "buttonAddDoctor";
-            this.buttonAddDoctor.Size = new System.Drawing.Size(39, 35);
-            this.buttonAddDoctor.TabIndex = 63;
-            this.buttonAddDoctor.Text = "+";
-            this.buttonAddDoctor.UseVisualStyleBackColor = false;
-            this.buttonAddDoctor.Click += new System.EventHandler(this.buttonAddDoctor_Click);
+            this.buttonRefreshPatients.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonRefreshPatients.BackgroundImage = global::Hospital.Properties.Resources.refresh;
+            this.buttonRefreshPatients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRefreshPatients.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRefreshPatients.Location = new System.Drawing.Point(371, 26);
+            this.buttonRefreshPatients.Name = "buttonRefreshPatients";
+            this.buttonRefreshPatients.Size = new System.Drawing.Size(40, 34);
+            this.buttonRefreshPatients.TabIndex = 65;
+            this.buttonRefreshPatients.UseVisualStyleBackColor = false;
+            this.buttonRefreshPatients.Click += new System.EventHandler(this.buttonRefreshPatients_Click);
             // 
             // buttonAddPAtient
             // 
@@ -380,47 +410,56 @@
             this.buttonAddPAtient.UseVisualStyleBackColor = false;
             this.buttonAddPAtient.Click += new System.EventHandler(this.buttonAddPAtient_Click);
             // 
-            // buttonRefreshPatients
-            // 
-            this.buttonRefreshPatients.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonRefreshPatients.BackgroundImage = global::Hospital.Properties.Resources.refresh;
-            this.buttonRefreshPatients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonRefreshPatients.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRefreshPatients.Location = new System.Drawing.Point(371, 26);
-            this.buttonRefreshPatients.Name = "buttonRefreshPatients";
-            this.buttonRefreshPatients.Size = new System.Drawing.Size(40, 34);
-            this.buttonRefreshPatients.TabIndex = 65;
-            this.buttonRefreshPatients.UseVisualStyleBackColor = false;
-            this.buttonRefreshPatients.Click += new System.EventHandler(this.buttonRefreshPatients_Click);
-            // 
-            // buttonRefreshDoctors
-            // 
-            this.buttonRefreshDoctors.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonRefreshDoctors.BackgroundImage = global::Hospital.Properties.Resources.refresh;
-            this.buttonRefreshDoctors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonRefreshDoctors.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRefreshDoctors.Location = new System.Drawing.Point(364, 26);
-            this.buttonRefreshDoctors.Name = "buttonRefreshDoctors";
-            this.buttonRefreshDoctors.Size = new System.Drawing.Size(40, 34);
-            this.buttonRefreshDoctors.TabIndex = 66;
-            this.buttonRefreshDoctors.UseVisualStyleBackColor = false;
-            this.buttonRefreshDoctors.Click += new System.EventHandler(this.buttonRefreshDoctors_Click);
-            // 
             // labelExampleBDay
             // 
             this.labelExampleBDay.AutoSize = true;
             this.labelExampleBDay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelExampleBDay.Location = new System.Drawing.Point(436, 37);
+            this.labelExampleBDay.Location = new System.Drawing.Point(415, 37);
             this.labelExampleBDay.Name = "labelExampleBDay";
             this.labelExampleBDay.Size = new System.Drawing.Size(137, 17);
             this.labelExampleBDay.TabIndex = 65;
             this.labelExampleBDay.Text = "03.05.2020 12:00";
+            // 
+            // buttonSearchApp
+            // 
+            this.buttonSearchApp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearchApp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSearchApp.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSearchApp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSearchApp.Location = new System.Drawing.Point(288, 479);
+            this.buttonSearchApp.Name = "buttonSearchApp";
+            this.buttonSearchApp.Size = new System.Drawing.Size(63, 28);
+            this.buttonSearchApp.TabIndex = 69;
+            this.buttonSearchApp.Text = "->";
+            this.buttonSearchApp.UseVisualStyleBackColor = false;
+            this.buttonSearchApp.Click += new System.EventHandler(this.buttonSearchApp_Click);
+            // 
+            // textBoxSearchApp
+            // 
+            this.textBoxSearchApp.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSearchApp.Location = new System.Drawing.Point(157, 513);
+            this.textBoxSearchApp.Name = "textBoxSearchApp";
+            this.textBoxSearchApp.Size = new System.Drawing.Size(194, 28);
+            this.textBoxSearchApp.TabIndex = 68;
+            // 
+            // labelSearchApp
+            // 
+            this.labelSearchApp.AutoSize = true;
+            this.labelSearchApp.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSearchApp.Location = new System.Drawing.Point(153, 479);
+            this.labelSearchApp.Name = "labelSearchApp";
+            this.labelSearchApp.Size = new System.Drawing.Size(75, 20);
+            this.labelSearchApp.TabIndex = 67;
+            this.labelSearchApp.Text = "Пошук:";
             // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 612);
+            this.Controls.Add(this.buttonSearchApp);
+            this.Controls.Add(this.textBoxSearchApp);
+            this.Controls.Add(this.labelSearchApp);
             this.Controls.Add(this.labelExampleBDay);
             this.Controls.Add(this.groupBoxPatient);
             this.Controls.Add(this.groupBoxDoctor);
@@ -432,8 +471,12 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelTitle);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(930, 659);
+            this.MinimumSize = new System.Drawing.Size(930, 659);
             this.Name = "AddAppointment";
-            this.Text = "AddAppointment";
+            this.Text = "Додати запис";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAllServises)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDoctors)).EndInit();
@@ -476,5 +519,8 @@
         private System.Windows.Forms.Button buttonRefreshPatients;
         private System.Windows.Forms.Button buttonRefreshDoctors;
         private System.Windows.Forms.Label labelExampleBDay;
+        private System.Windows.Forms.Button buttonSearchApp;
+        private System.Windows.Forms.TextBox textBoxSearchApp;
+        private System.Windows.Forms.Label labelSearchApp;
     }
 }

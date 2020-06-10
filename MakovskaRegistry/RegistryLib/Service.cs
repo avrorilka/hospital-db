@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Text;
 
 namespace RegistryLib
 {
@@ -79,6 +78,20 @@ namespace RegistryLib
 			EditMember($"DELETE FROM Appointment_Service " +
 						$"WHERE appointment = {id} AND service_id = {serviceId}");
 		}
+
+		public static DataTable SearchAppointment(string text)
+		{
+			text = text.Trim();
+			DataTable table = new DataTable();
+
+			readerData = AllMembers("SELECT * From Service " +
+						$"WHERE name " +
+						$"LIKE '%{text}%'");
+			table = CreateTable(readerData);
+
+			return table;
+		}
+
 
 	}
 }

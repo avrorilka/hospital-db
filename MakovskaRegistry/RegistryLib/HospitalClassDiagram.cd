@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RegistryLib.Appointment">
+    <Position X="13.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICBBAAAAQAEAAACABAAAAAIAAAAAECIAAgCQAAAAAgA=</HashCode>
+      <FileName>Appointment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="serviceList" />
+      <Property Name="doctorId" />
+      <Property Name="patientId" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Cabinet">
+    <Position X="21.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Cabinet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Doctor">
+    <Position X="17" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACBAAAAABAAUAEABFAABEApAAAAAIAAAAgA=</HashCode>
+      <FileName>Doctor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="type" />
+      <Field Name="cabinet" />
+      <Field Name="schedule" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Model">
+    <Position X="13.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAEAAAQAAAAAAAgAAAABAAAAAACAAAA=</HashCode>
+      <FileName>Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegistryLib.Patient">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAQAQEAAAABAAAAABAAUQAQEFEKAEAICAAAQAAAAAAA=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupList" />
+      <Field Name="status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Privileged_group">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAkAAAAAAEQAABAgiA=</HashCode>
+      <FileName>Privileged_group.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="patientLists" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Schedule">
+    <Position X="23.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAEAiA=</HashCode>
+      <FileName>Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegistryLib.Service">
+    <Position X="15" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABAAAAAAAAAAAABAAAAAIAAAAEACIAAAAAACAAAgQ=</HashCode>
+      <FileName>Service.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="serviceLists" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RegistryLib.Status">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAgA=</HashCode>
+      <FileName>Status.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegistryLib.Type">
+    <Position X="19.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAggA=</HashCode>
+      <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="9.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

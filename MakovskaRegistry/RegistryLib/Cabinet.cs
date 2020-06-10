@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RegistryLib
 {
-   public class Cabinet
+   public class Cabinet : Model
    {
 		public int id { get; set; }
 		public int cabinetNumber { get; set; }
