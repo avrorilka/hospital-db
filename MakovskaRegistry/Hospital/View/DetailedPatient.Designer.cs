@@ -227,7 +227,7 @@
             this.buttonDelete.BackColor = System.Drawing.Color.Maroon;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDelete.Location = new System.Drawing.Point(723, 500);
+            this.buttonDelete.Location = new System.Drawing.Point(706, 500);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(107, 35);
             this.buttonDelete.TabIndex = 17;
@@ -368,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 547);
+            this.ClientSize = new System.Drawing.Size(827, 547);
             this.Controls.Add(this.groupBoxMedInfo);
             this.Controls.Add(this.groupBoxGeneralData);
             this.Controls.Add(this.groupBoxFullName);
@@ -379,8 +379,8 @@
             this.Controls.Add(this.labelCardNumb);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(860, 594);
-            this.MinimumSize = new System.Drawing.Size(860, 594);
+            this.MaximumSize = new System.Drawing.Size(845, 594);
+            this.MinimumSize = new System.Drawing.Size(845, 594);
             this.Name = "DetailedPatient";
             this.Text = "DetailedPatient";
             this.groupBoxFullName.ResumeLayout(false);

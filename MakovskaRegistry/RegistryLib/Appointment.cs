@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace RegistryLib
 {
 	public class Appointment : Model
 	{
+		string pattern;
+
 		public int id { get; set; }
 		public Patient patientId { get; set; }
 		public Doctor doctorId { get; set; }
-		public string dataTime { get; set; }
+
+		private string dataTime;
+		public string DataTime
+		{
+			get => dataTime;
+			set
+			{
+				pattern = @"(((0[1-9]|[1-2][0-9]|3[0-1]).(0[1-9]|1[0-2]).(19[0-9]{2}|20[0-2][0-9]|201[0-7])) ([0-1]*[0-9]|2[0-3]):([0-5][0-9]))";
+				if (Regex.IsMatch(value, pattern, RegexOptions.IgnoreCase) || value == "")
+					dataTime = value;
+				else
+					throw new ArgumentException();
+			}
+		}
 		public List<Service> serviceList;
 
 		public Appointment(int Id, int Doctor_id, int Patient_id, string Data_time, List<Service> ServiceList)
@@ -19,7 +35,7 @@ namespace RegistryLib
 			this.id = Id;
 			this.doctorId = new Doctor(Doctor_id);
 			this.patientId = new Patient(Patient_id);
-			this.dataTime = Data_time;
+			this.DataTime = Data_time;
 			this.serviceList = ServiceList;
 		}
 		public Appointment() { }
@@ -125,6 +141,15 @@ namespace RegistryLib
 					}
 			}
 			return table;
+		}
+
+		public static void DeleteAppointment(int id)
+		{
+			EditMember($"DELETE FROM Appointment_Service " +
+						$"WHERE appointment = {id};");
+
+			EditMember($"DELETE FROM Appointment " +
+						$"WHERE id = {id};");
 		}
 	}
 }

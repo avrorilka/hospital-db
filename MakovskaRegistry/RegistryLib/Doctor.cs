@@ -134,6 +134,16 @@ namespace RegistryLib
 			EditMember($"DELETE FROM Schedule " +
 					   $"WHERE doctor_id = {id}");
 
+			readerData = AllMembers($"SELECT id FROM Appointment " +
+									$"WHERE doctor_id = {id};");
+			int appId = 0;
+			while (readerData.Read())
+			{
+				appId = Convert.ToInt32(readerData[0]);
+			}
+			Closer(readerData);
+			Appointment.DeleteAppointment(appId);
+
 			EditMember($"DELETE FROM Doctor " +
 					   $"WHERE id = {id}");
 		}

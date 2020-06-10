@@ -37,6 +37,7 @@ namespace Hospital.View
             dataGridViewDoctors.DataSource = table;
             dataGridViewDoctors.Columns[0].Width = 50;
             dataGridViewDoctors.Columns[3].Width = 130;
+
         }
         public void FillPatientDataGrid(int patientId)
         {
@@ -53,13 +54,26 @@ namespace Hospital.View
             dataGridViewPatients.Columns[0].Width = 50;
             dataGridViewPatients.Columns[3].Width = 130;
         }
+        public void FillServiceDataGrid()
+        {
 
-        public void FillDetailedInfo(int id)
+            DataTable table = Service.AllMembersTable();
+            dataGridViewAllServises.DataSource = table;
+
+            dataGridViewAllServises.Columns[0].Width = 50;
+            dataGridViewAllServises.Columns[1].Width = 255;
+            dataGridViewAllServises.Columns[2].Width = 60;
+
+            dataGridViewAllServises.RowsDefaultCellStyle.BackColor = Color.PowderBlue;
+            dataGridViewAllServises.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+        }
+
+            public void FillDetailedInfo(int id)
         {
             appointment = Appointment.DetailedAppointment(id);
 
-            textBoxCardNumb.Text = Convert.ToString(appointment.id);
-            textBoxDateTime.Text = appointment.dataTime;
+            textBoxNumb.Text = Convert.ToString(appointment.id);
+            textBoxDateTime.Text = appointment.DataTime;
 
             FillDoctorDataGrid(appointment.doctorId.id);
             FillPatientDataGrid(appointment.patientId.card_number);
@@ -71,6 +85,7 @@ namespace Hospital.View
             }
             textBoxPrise.Text = Convert.ToString(CountPrise()) + " грн";
         }
+
 
         public double CountPrise()
         {
@@ -87,6 +102,8 @@ namespace Hospital.View
                 sum += service.price;
             }
             sum = sum - (sum * maxDiscount / 100);
+            textBoxDiscount.Text = Convert.ToString(maxDiscount);
+
             return sum;
         }
 
@@ -111,6 +128,36 @@ namespace Hospital.View
 
                 DetailedPatient form = new DetailedPatient(card_number);
                 form.Show();
+            }
+        }
+
+        private void DetailedAppointment_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            textBoxDateTime.ReadOnly = false;
+            buttonSave.Visible = true;
+            labelAvaliableServises.Visible = true;
+            dataGridViewAllServises.Visible = true;
+            buttonAdd.Visible = true;
+            buttonRemove.Visible = true;
+            FillServiceDataGrid();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(textBoxNumb.Text);
+                Patient.DeletePatient(id);
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо видалити", "Помилка", MessageBoxButtons.OK);
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Text;
 
 namespace RegistryLib
@@ -45,6 +47,26 @@ namespace RegistryLib
 				serviceLists.Add(service);
 			}
 			return serviceLists;
+		}
+
+		public static DataTable CreateTable(SQLiteDataReader readerData)
+		{
+			DataTable table = new DataTable();
+
+			table.Columns.Add("id");
+			table.Columns.Add("Назва");
+			table.Columns.Add("Ціна");
+
+			while (readerData.Read())
+				table.Rows.Add(readerData[0], readerData[1], readerData[2]);
+
+			return table;
+		}
+		public static DataTable AllMembersTable()
+		{
+			readerData = AllMembers("SELECT * From Service");
+			DataTable table = CreateTable(readerData);
+			return table;
 		}
 	}
 }

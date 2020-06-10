@@ -140,7 +140,7 @@ namespace Hospital.View
             }
             catch
             {
-                MessageBox.Show("Неможливо видалити", "Помилка", MessageBoxButtons.OK);
+                
             }
         }
 

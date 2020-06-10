@@ -189,11 +189,21 @@ namespace RegistryLib
 		}
 		public static void DeletePatient(int card_number)
 		{
-			EditMember($"DELETE FROM Patient " +
-					   $"WHERE card_number = {card_number};");
-
 			EditMember($"DELETE FROM Patient_Group " +
 					   $"WHERE patient_id = {card_number};");
+
+			readerData = AllMembers($"SELECT id FROM Appointment " +
+									$"WHERE patient_id = {card_number};");
+			int appId = 0;
+			while (readerData.Read())
+			{
+				appId = Convert.ToInt32(readerData[0]);
+			}
+			Closer(readerData);
+			Appointment.DeleteAppointment(appId);
+
+			EditMember($"DELETE FROM Patient " +
+					   $"WHERE card_number = {card_number};");
 		}
 
 		public static Patient DetailedPatient(int card_number)
