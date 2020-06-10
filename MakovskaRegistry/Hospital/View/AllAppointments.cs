@@ -48,8 +48,8 @@ namespace Hospital.View
 
         private void buttonAddAppointment_Click(object sender, EventArgs e)
         {
-            //AddPatient form = new AddPatient();
-            //form.Show();
+            AddAppointment form = new AddAppointment();
+            form.Show();
         }
 
         private void Details_Click(object sender, EventArgs e)

@@ -38,7 +38,21 @@ namespace RegistryLib
 			this.DataTime = Data_time;
 			this.serviceList = ServiceList;
 		}
+		public Appointment(int Doctor_id, int Patient_id, string Data_time)
+		{
+			this.doctorId = new Doctor(Doctor_id);
+			this.patientId = new Patient(Patient_id);
+			this.DataTime = Data_time;
+		}
+		public Appointment(int Id, int Doctor_id, int Patient_id, string Data_time)
+		{
+			this.id = Id;
+			this.doctorId = new Doctor(Doctor_id);
+			this.patientId = new Patient(Patient_id);
+			this.DataTime = Data_time;
+		}
 		public Appointment() { }
+
 		public static DataTable CreateTable(SQLiteDataReader readerData)
 		{
 			DataTable table = new DataTable();
@@ -83,6 +97,25 @@ namespace RegistryLib
 			}
 			Appointment newApp = new Appointment();
 			return newApp;
+		}
+
+		public static void EditAppointment(Appointment appointment)
+		{
+			EditMember($"UPDATE Appointment SET data_time = \"{appointment.dataTime}\" " +
+						$"WHERE id = {appointment.id}");
+		}
+		public static void CheckAppointmentData(Appointment appointment)
+		{
+			readerData = AllMembers($"SELECT id from Appointment " +
+					$"Where doctor_id = \"{appointment.doctorId.id}\" AND data_time = \"{appointment.dataTime}\"");
+			while (readerData.Read())
+			{
+				if (readerData[0] != DBNull.Value)
+					throw new ArgumentException();
+
+				else
+					EditAppointment(appointment); 
+			}
 		}
 
 		public static string AppointmentString()
@@ -150,6 +183,16 @@ namespace RegistryLib
 
 			EditMember($"DELETE FROM Appointment " +
 						$"WHERE id = {id};");
+		}
+
+		public static void InsertNewAppointment(Appointment appointment, int serviceId)
+		{
+			EditMember("INSERT INTO Appointment(doctor_id, patient_id, data_time) " +
+						 $"VALUES(\"{appointment.doctorId.id}\", \"{appointment.patientId.card_number}\", " +
+						 $"\"{appointment.dataTime}\")");
+
+			int appId = GetLastMemberId("SELECT max(id) FROM Appointment");
+			Service.AddService(appId, serviceId);
 		}
 	}
 }

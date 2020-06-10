@@ -68,7 +68,7 @@ namespace Hospital.View
             dataGridViewAllServises.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
-            public void FillDetailedInfo(int id)
+        public void FillDetailedInfo(int id)
         {
             appointment = Appointment.DetailedAppointment(id);
 
@@ -77,15 +77,19 @@ namespace Hospital.View
 
             FillDoctorDataGrid(appointment.doctorId.id);
             FillPatientDataGrid(appointment.patientId.card_number);
+            FillList();
 
+
+        }
+        public void FillList()
+        {
             foreach (var service in appointment.serviceList)
             {
                 string info = service.name + "    " + service.price + " грн";
                 listBoxServises.Items.Add(info);
             }
-            textBoxPrise.Text = Convert.ToString(CountPrise()) + " грн";
+            CountPrise();
         }
-
 
         public double CountPrise()
         {
@@ -102,7 +106,9 @@ namespace Hospital.View
                 sum += service.price;
             }
             sum = sum - (sum * maxDiscount / 100);
-            textBoxDiscount.Text = Convert.ToString(maxDiscount);
+
+            textBoxDiscount.Text = Convert.ToString(maxDiscount) + "%";
+            textBoxPrise.Text = Convert.ToString(sum) + " грн";
 
             return sum;
         }
@@ -131,11 +137,6 @@ namespace Hospital.View
             }
         }
 
-        private void DetailedAppointment_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             textBoxDateTime.ReadOnly = false;
@@ -158,6 +159,102 @@ namespace Hospital.View
             catch
             {
                 MessageBox.Show("Неможливо видалити", "Помилка", MessageBoxButtons.OK);
+            }
+        }
+
+
+        private bool CheckIndex()
+        {
+            if (dataGridViewAllServises.SelectedRows.Count == 1) 
+            {
+                int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
+                string name = Convert.ToString(dataGridViewAllServises.Rows[rowIndex].Cells[1].Value);
+
+                bool unique = true;
+                foreach (var service in appointment.serviceList)
+                {
+                    if (service.name == name)
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+                return unique;
+            }
+            return false;
+        }
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewAllServises.SelectedRows.Count == 1) 
+            {
+                int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
+
+                int index = Convert.ToInt32(dataGridViewAllServises.Rows[rowIndex].Cells[0].Value);
+                string name = Convert.ToString(dataGridViewAllServises.Rows[rowIndex].Cells[1].Value);
+                double prise = Convert.ToDouble(dataGridViewAllServises.Rows[rowIndex].Cells[2].Value);
+
+                if (CheckIndex() == true)
+                {
+                    Service service = new Service(name, prise);
+
+                    string info = service.name + "    " + service.price + " грн";
+                    appointment.serviceList.Add(service);
+                    listBoxServises.Items.Add(info);
+                    Service.AddService(appointment.id, index);
+
+                    CountPrise();
+                }
+            }  
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewAllServises.SelectedRows.Count == 1) 
+            {
+                int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
+                int index = Convert.ToInt32(dataGridViewAllServises.Rows[rowIndex].Cells[0].Value);
+                string name = Convert.ToString(dataGridViewAllServises.Rows[rowIndex].Cells[1].Value);
+
+                if (CheckIndex() == false)
+                {
+                    foreach (var service in appointment.serviceList)
+                    {
+                        if (service.name == name)
+                        {
+                            Service.RemoveService(appointment.id, index);
+                            appointment.serviceList.Remove(service);
+                            break;
+                        }
+                    }
+
+                    listBoxServises.Items.Clear();
+                    FillList();
+                }
+            } 
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            string dataTime;
+            try
+            {
+                dataTime = textBoxDateTime.Text;
+
+                Appointment appointmentNew = new Appointment(appointment.id, appointment.doctorId.id, 
+                                                            appointment.patientId.card_number, dataTime);
+                Appointment.CheckAppointmentData(appointmentNew);
+
+                buttonSave.Visible = false;
+                textBoxDateTime.ReadOnly = true;
+                labelAvaliableServises.Visible = false;
+                dataGridViewAllServises.Visible = false;
+                buttonAdd.Visible = false;
+                buttonRemove.Visible = false;
+                //FillServiceDataGrid();
+            }
+            catch
+            {
+                MessageBox.Show("Помилка введення значень!", "Помилка", MessageBoxButtons.OK);
             }
         }
     }

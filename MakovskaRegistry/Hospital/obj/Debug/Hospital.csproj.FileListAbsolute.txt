@@ -37,3 +37,4 @@ D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.DetailedD
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AddDoctor.resources
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AllAppointments.resources
 D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.DetailedAppointment.resources
+D:\stud\1\coursework\MakovskaRegistry\Hospital\obj\Debug\Hospital.View.AddAppointment.resources

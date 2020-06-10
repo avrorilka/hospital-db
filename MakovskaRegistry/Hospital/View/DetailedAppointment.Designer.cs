@@ -226,6 +226,7 @@
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonDelete
             // 
@@ -299,6 +300,7 @@
             this.buttonRemove.Text = "-";
             this.buttonRemove.UseVisualStyleBackColor = false;
             this.buttonRemove.Visible = false;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonAdd
             // 
@@ -312,6 +314,7 @@
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // groupBoxPrise
             // 

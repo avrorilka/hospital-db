@@ -68,5 +68,17 @@ namespace RegistryLib
 			DataTable table = CreateTable(readerData);
 			return table;
 		}
+
+		public static void AddService(int id, int serviceId)
+		{
+			EditMember("INSERT INTO Appointment_Service(appointment, service_id) " +
+						$"VALUES ({id},{serviceId})");
+		}
+		public static void RemoveService(int id, int serviceId)
+		{
+			EditMember($"DELETE FROM Appointment_Service " +
+						$"WHERE appointment = {id} AND service_id = {serviceId}");
+		}
+
 	}
 }

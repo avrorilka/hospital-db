@@ -183,9 +183,7 @@ namespace RegistryLib
 			EditMember("INSERT INTO Patient(first_name, surname, midlle_name, birth_date, " +
 						"phone_number, address, status_id) " +
 						 $"VALUES(\"{patient.FirstName}\", \"{patient.Surname}\", \"{patient.MiddleName}\", " +
-						 $"\"{patient.BirthDate}\", \"{patient.PhoneNumber}\", \"{patient.Address}\", NULL)");
-
-		
+						 $"\"{patient.BirthDate}\", \"{patient.PhoneNumber}\", \"{patient.Address}\", NULL)");		
 		}
 		public static void DeletePatient(int card_number)
 		{
