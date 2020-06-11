@@ -237,7 +237,7 @@ namespace Hospital.View
 
                 Appointment appointmentNew = new Appointment(appointment.id, appointment.doctorId.id, 
                                                             appointment.patientId.card_number, dataTime);
-                Appointment.CheckAppointmentData(appointmentNew);
+                Appointment.EditAppointment(appointmentNew);
 
                 buttonSave.Visible = false;
                 textBoxDateTime.ReadOnly = true;

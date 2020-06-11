@@ -126,7 +126,7 @@ namespace RegistryLib
 						return true;
 				}
 			}
-			return false;
+			return true;
 		}
 
 		public static string AppointmentString()

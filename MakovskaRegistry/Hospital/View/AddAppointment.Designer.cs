@@ -226,13 +226,13 @@
             // 
             // buttonSearchDoctor
             // 
-            this.buttonSearchDoctor.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearchDoctor.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonSearchDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSearchDoctor.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSearchDoctor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonSearchDoctor.Location = new System.Drawing.Point(341, 232);
             this.buttonSearchDoctor.Name = "buttonSearchDoctor";
-            this.buttonSearchDoctor.Size = new System.Drawing.Size(63, 28);
+            this.buttonSearchDoctor.Size = new System.Drawing.Size(42, 28);
             this.buttonSearchDoctor.TabIndex = 58;
             this.buttonSearchDoctor.Text = "->";
             this.buttonSearchDoctor.UseVisualStyleBackColor = false;
@@ -274,13 +274,13 @@
             // 
             // buttonSearchPatient
             // 
-            this.buttonSearchPatient.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearchPatient.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonSearchPatient.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSearchPatient.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSearchPatient.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSearchPatient.Location = new System.Drawing.Point(348, 232);
             this.buttonSearchPatient.Name = "buttonSearchPatient";
-            this.buttonSearchPatient.Size = new System.Drawing.Size(63, 28);
+            this.buttonSearchPatient.Size = new System.Drawing.Size(42, 28);
             this.buttonSearchPatient.TabIndex = 62;
             this.buttonSearchPatient.Text = "->";
             this.buttonSearchPatient.UseVisualStyleBackColor = false;
@@ -422,13 +422,13 @@
             // 
             // buttonSearchApp
             // 
-            this.buttonSearchApp.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSearchApp.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonSearchApp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSearchApp.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSearchApp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonSearchApp.Location = new System.Drawing.Point(288, 479);
             this.buttonSearchApp.Name = "buttonSearchApp";
-            this.buttonSearchApp.Size = new System.Drawing.Size(63, 28);
+            this.buttonSearchApp.Size = new System.Drawing.Size(42, 28);
             this.buttonSearchApp.TabIndex = 69;
             this.buttonSearchApp.Text = "->";
             this.buttonSearchApp.UseVisualStyleBackColor = false;
