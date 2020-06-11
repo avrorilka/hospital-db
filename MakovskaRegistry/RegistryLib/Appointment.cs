@@ -70,6 +70,8 @@ namespace RegistryLib
 		{
 			readerData = AllMembers(AppointmentString());
 			DataTable table = CreateTable(readerData);
+			Closer(readerData);
+
 			return table;
 		}
 		public static Appointment DetailedAppointment(int id)
@@ -92,6 +94,8 @@ namespace RegistryLib
 
 				Service.serviceLists = Service.DetailedAppointment(id);
 				appointment = new Appointment(appId, doctorId, patientId, dataTime, Service.serviceLists);
+				Closer(readerData);
+
 				return appointment;
 			}
 			Appointment newApp = new Appointment();
@@ -100,7 +104,9 @@ namespace RegistryLib
 
 		public static void EditAppointment(Appointment appointment)
 		{
-			if(CheckAppointmentData(appointment) == true)
+			Closer(readerData);
+
+			if (CheckAppointmentData(appointment) == true)
 				EditMember($"UPDATE Appointment SET data_time = \"{appointment.dataTime}\" " +
 							$"WHERE id = {appointment.id}");
 		}
@@ -144,6 +150,8 @@ namespace RegistryLib
 
 		public static DataTable SearchAppointment(int index, string text)
 		{
+			Closer(readerData);
+
 			text = text.Trim();
 			DataTable table = new DataTable();
 			switch (index)
@@ -154,6 +162,7 @@ namespace RegistryLib
 									$"WHERE Appointment.data_time " +
 									$"LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -162,6 +171,7 @@ namespace RegistryLib
 						readerData = AllMembers(AppointmentString() +
 									$"WHERE Appointment.patient_id = {text}");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -171,6 +181,7 @@ namespace RegistryLib
 									$"WHERE Doctor.surname " +
 									$"LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -180,6 +191,7 @@ namespace RegistryLib
 												"WHERE Service.name " +
 												$"LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -189,6 +201,8 @@ namespace RegistryLib
 
 		public static void DeleteAppointment(int id)
 		{
+			Closer(readerData);
+
 			EditMember($"DELETE FROM Appointment_Service " +
 						$"WHERE appointment = {id};");
 

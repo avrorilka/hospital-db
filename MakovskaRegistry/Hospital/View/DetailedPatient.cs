@@ -16,30 +16,43 @@ namespace Hospital.View
 
         public void FillDetailedInfo(int card_number)
         {
-            patient = Patient.DetailedPatient(card_number);
-            textBoxCardNumb.Text = Convert.ToString(patient.card_number);
-            textBoxFirstName.Text = patient.FirstName;
-            textBoxSurname.Text = patient.Surname;
-            textBoxMiddleName.Text = patient.MiddleName;
-            textBoxBirth.Text = patient.BirthDate;
-            textBoxPhone.Text = patient.PhoneNumber;
-            textBoxAddress.Text = patient.Address;
-
-            FillStatusBox();
-            FillGroupBox();
-
-            if (patient.status == null)
-                comboBoxStatus.SelectedIndex = 0;
-
-            else
+            try
             {
-                int status_id = patient.status.id;
-                comboBoxStatus.SelectedIndex = status_id;
+                patient = Patient.DetailedPatient(card_number);
+
+                if (patient.card_number == 0)
+                {
+                    Close();
+                    throw new ArgumentNullException();
+                }
+                textBoxCardNumb.Text = Convert.ToString(patient.card_number);
+                textBoxFirstName.Text = patient.FirstName;
+                textBoxSurname.Text = patient.Surname;
+                textBoxMiddleName.Text = patient.MiddleName;
+                textBoxBirth.Text = patient.BirthDate;
+                textBoxPhone.Text = patient.PhoneNumber;
+                textBoxAddress.Text = patient.Address;
+
+                FillStatusBox();
+                FillGroupBox();
+
+                if (patient.status == null)
+                    comboBoxStatus.SelectedIndex = 0;
+
+                else
+                {
+                    int status_id = patient.status.id;
+                    comboBoxStatus.SelectedIndex = status_id;
+                }
+
+                Model.Closer(Model.readerData);
+
+                if (patient.groupList != null) { FillList(); }
             }
-
-            Model.Closer(Model.readerData);
-
-            if (patient.groupList != null) { FillList(); }
+            catch
+            {
+                MessageBox.Show("Такого значення не існує!", "Помилка", MessageBoxButtons.OK);
+            }
         }
 
         public void FillStatusBox()
@@ -131,7 +144,7 @@ namespace Hospital.View
             }
             catch
             {
-                
+                MessageBox.Show("Неможливо видалити", "Помилка", MessageBoxButtons.OK);
             }
         }
 
@@ -152,33 +165,46 @@ namespace Hospital.View
         private void buttonAddGroup_Click(object sender, EventArgs e)
         {
             int index = comboBoxGroup.SelectedIndex;
-
-            if (CheckIndex() == true) 
+            try
             {
-                Privileged_group group = Privileged_group.NewGroup(index);
-                patient.groupList.Add(group);
-                listBoxGroup.Items.Add(group.name);
-                Privileged_group.AddGroup(patient.card_number, group.id);
-            }
+                if (CheckIndex() == true)
+                {
+                    Privileged_group group = Privileged_group.NewGroup(index);
+                    patient.groupList.Add(group);;
+                    Privileged_group.AddGroup(patient.card_number, group.id);
+                }
 
+                listBoxGroup.Items.Clear();
+                FillList();
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо додати запис", "Помилка", MessageBoxButtons.OK);
+            }
         }
         private void buttonRemoveGroup_Click(object sender, EventArgs e)
         {
             int index = comboBoxGroup.SelectedIndex;
-            if (CheckIndex() == false)
+            try
             {
-                foreach (var group in patient.groupList)
+                if (CheckIndex() == false)
                 {
-                    if (group.id == index)
+                    foreach (var group in patient.groupList)
                     {
-                        Privileged_group.RemoveGroup(patient.card_number, group.id);
-                        patient.groupList.Remove(group);
-                        break;
+                        if (group.id == index)
+                        {
+                            Privileged_group.RemoveGroup(patient.card_number, group.id);
+                            patient.groupList.Remove(group);
+                            break;
+                        }
                     }
+                    listBoxGroup.Items.Clear();
+                    FillList();
                 }
-               
-                listBoxGroup.Items.Clear();
-                FillList();
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо видалити запис", "Помилка", MessageBoxButtons.OK);
             }
         }
     }

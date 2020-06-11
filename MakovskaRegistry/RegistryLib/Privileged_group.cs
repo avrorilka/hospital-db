@@ -67,7 +67,7 @@ namespace RegistryLib
 			{
 				groupList.Add(Convert.ToString(Model.readerData[0]));
 			}
-			Model.Closer(Model.readerData);
+			Closer(Model.readerData);
 
 			return groupList;
 		}

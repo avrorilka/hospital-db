@@ -67,12 +67,22 @@ namespace Hospital.View
         {
             appointment = Appointment.DetailedAppointment(id);
 
-            textBoxNumb.Text = Convert.ToString(appointment.id);
-            textBoxDateTime.Text = appointment.DataTime;
+            try
+            {
+                if (appointment.id == 0)
+                {
+                    Close();
+                    throw new ArgumentNullException();
+                }
 
-            FillDoctorDataGrid(appointment.doctorId.id);
-            FillPatientDataGrid(appointment.patientId.card_number);
-            FillList();
+                textBoxNumb.Text = Convert.ToString(appointment.id);
+                textBoxDateTime.Text = appointment.DataTime;
+
+                FillDoctorDataGrid(appointment.doctorId.id);
+                FillPatientDataGrid(appointment.patientId.card_number);
+                FillList();
+            }
+            catch { }
 
 
         }
@@ -180,30 +190,39 @@ namespace Hospital.View
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (dataGridViewAllServises.SelectedRows.Count == 1) 
+            try
             {
-                int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
-
-                int index = Convert.ToInt32(dataGridViewAllServises.Rows[rowIndex].Cells[0].Value);
-                string name = Convert.ToString(dataGridViewAllServises.Rows[rowIndex].Cells[1].Value);
-                double prise = Convert.ToDouble(dataGridViewAllServises.Rows[rowIndex].Cells[2].Value);
-
-                if (CheckIndex() == true)
+                if (dataGridViewAllServises.SelectedRows.Count == 1)
                 {
-                    Service service = new Service(name, prise);
+                    int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
 
-                    string info = service.name + "    " + service.price + " грн";
-                    appointment.serviceList.Add(service);
-                    listBoxServises.Items.Add(info);
-                    Service.AddService(appointment.id, index);
+                    int index = Convert.ToInt32(dataGridViewAllServises.Rows[rowIndex].Cells[0].Value);
+                    string name = Convert.ToString(dataGridViewAllServises.Rows[rowIndex].Cells[1].Value);
+                    double prise = Convert.ToDouble(dataGridViewAllServises.Rows[rowIndex].Cells[2].Value);
 
-                    CountPrise();
+                    if (CheckIndex() == true)
+                    {
+                        Service service = new Service(name, prise);
+
+                        string info = service.name + "    " + service.price + " грн";
+                        appointment.serviceList.Add(service);
+                        listBoxServises.Items.Add(info);
+                        Service.AddService(appointment.id, index);
+
+                        CountPrise();
+                    }
                 }
-            }  
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо додати запис", "Помилка", MessageBoxButtons.OK);
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
+            try
+            { 
             if (dataGridViewAllServises.SelectedRows.Count == 1) 
             {
                 int rowIndex = dataGridViewAllServises.CurrentCell.RowIndex;
@@ -225,7 +244,12 @@ namespace Hospital.View
                     listBoxServises.Items.Clear();
                     FillList();
                 }
-            } 
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Неможливо видалити запис", "Помилка", MessageBoxButtons.OK);
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -245,7 +269,6 @@ namespace Hospital.View
                 dataGridViewAllServises.Visible = false;
                 buttonAdd.Visible = false;
                 buttonRemove.Visible = false;
-                //FillServiceDataGrid();
             }
             catch
             {

@@ -88,7 +88,7 @@ namespace RegistryLib
 			get => address;
 			set
 			{
-				if (String.IsNullOrWhiteSpace(value) == false)
+				if (string.IsNullOrWhiteSpace(value) == false)
 					address = value;
 				else
 					throw new ArgumentException();
@@ -173,6 +173,8 @@ namespace RegistryLib
 		{
 			readerData = AllMembers("Select * From Patient");
 			DataTable table = CreateTable(readerData);
+			Closer(readerData);
+
 			return table;
 		}
 		
@@ -185,6 +187,8 @@ namespace RegistryLib
 		}
 		public static void DeletePatient(int card_number)
 		{
+			Closer(readerData);
+
 			EditMember($"DELETE FROM Patient_Group " +
 					   $"WHERE patient_id = {card_number};");
 
@@ -241,6 +245,8 @@ namespace RegistryLib
 					patient = new Patient(cardNumb, name, surname, middleName, birthDate, phoneNumb, adress, statusId,
 									  Privileged_group.patientLists);
 
+				Closer(readerData);
+
 				return patient;
 			}
 			
@@ -258,6 +264,8 @@ namespace RegistryLib
 
 		public static DataTable SearchPatient(int index, string text)
 		{
+			Closer(readerData);
+
 			text = text.Trim();
 			DataTable table = new DataTable();
 			switch (index)
@@ -267,6 +275,7 @@ namespace RegistryLib
 						readerData = AllMembers("Select * From Patient " +
 							  $"WHERE card_number = \"{text}\"");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -275,6 +284,7 @@ namespace RegistryLib
 						readerData = AllMembers("Select * From Patient " +
 							  $"WHERE first_name LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -283,6 +293,7 @@ namespace RegistryLib
 						readerData = AllMembers("Select * From Patient " +
 								$"WHERE surname LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}
@@ -291,6 +302,7 @@ namespace RegistryLib
 						readerData = AllMembers("Select * From Patient " +
 									$" WHERE birth_date LIKE '%{text}%'");
 						table = CreateTable(readerData);
+						Closer(readerData);
 
 						break;
 					}

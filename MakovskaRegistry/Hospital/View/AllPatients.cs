@@ -38,9 +38,13 @@ namespace Hospital
                 int rowIndex = dataGridViewPatients.CurrentCell.RowIndex;
 
                 int card_number = Convert.ToInt32(dataGridViewPatients.Rows[rowIndex].Cells[0].Value);
-
-                DetailedPatient form = new DetailedPatient(card_number);
-                form.Show();
+                
+                try
+                {
+                    DetailedPatient form = new DetailedPatient(card_number);
+                    form.Show();
+                }
+                catch { }
             }
         }
 

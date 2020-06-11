@@ -55,8 +55,12 @@ namespace Hospital.View
 
                 int id = Convert.ToInt32(dataGridViewAppointments.Rows[rowIndex].Cells[0].Value);
 
-                DetailedAppointment form = new DetailedAppointment(id);
-                form.Show();
+                try
+                {
+                    DetailedAppointment form = new DetailedAppointment(id);
+                    form.Show();
+                }
+                catch { }
             }
         }
     }

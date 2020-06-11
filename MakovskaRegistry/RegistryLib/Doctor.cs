@@ -107,6 +107,8 @@ namespace RegistryLib
 		{
 			readerData = AllMembers(DoctorString());
 			DataTable table = CreateTable(readerData);
+			Closer(readerData);
+
 			return table;
 		}
 		public static DataTable CreateTable(SQLiteDataReader readerData)
@@ -170,7 +172,8 @@ namespace RegistryLib
 					timeStart = Convert.ToString(readerData[6]), timeEnd = Convert.ToString(readerData[7]);
 
 				doctor = new Doctor(doctor_id, name, surname, middleName, cabinetNumber, typeName, timeStart, timeEnd);
-
+				Closer(readerData);
+				
 				return doctor;
 			}
 
@@ -180,6 +183,8 @@ namespace RegistryLib
 
 		public static DataTable SearchDoctor(int index, string text)
 		{
+			Closer(readerData);
+
 			text = text.Trim();
 			DataTable table = new DataTable();
 			switch (index)
@@ -221,11 +226,14 @@ namespace RegistryLib
 						break;
 					}
 			}
+			Closer(readerData);
 			return table;
 		}
 
 		public static void EditDoctor(Doctor doctor, int oldCab)
 		{
+			Closer(readerData);
+
 			EditMember($"UPDATE Doctor SET first_name = \"{doctor.firstName}\", surname = \"{doctor.surname}\", " +
 						$"middle_name = \"{doctor.middleName}\" " +
 						$"WHERE id = {doctor.id}");
@@ -240,7 +248,8 @@ namespace RegistryLib
 			{
 				typeId = Convert.ToInt32(readerData[0]);
 			}
-			
+			Closer(readerData);
+
 			EditMember($"UPDATE Cabinet SET type_id = \"{typeId}\", cabinet_number = \"{doctor.cabinet.cabinetNumber}\" " +
 						$"WHERE cabinet_number = \"{oldCab}\"");
 		}

@@ -49,8 +49,12 @@ namespace Hospital.View
 
                 int doctirId = Convert.ToInt32(dataGridViewDoctors.Rows[rowIndex].Cells[0].Value);
 
-                DetailedDoctor form = new DetailedDoctor(doctirId);
-                form.Show();
+                try
+                {
+                    DetailedDoctor form = new DetailedDoctor(doctirId);
+                    form.Show();
+                }
+                catch { }
             }
         }
 

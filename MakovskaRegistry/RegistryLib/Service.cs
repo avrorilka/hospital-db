@@ -45,6 +45,8 @@ namespace RegistryLib
 				Service service = new Service(Convert.ToString(readerData[4]), Convert.ToInt32(readerData[5]));
 				serviceLists.Add(service);
 			}
+			Closer(readerData);
+
 			return serviceLists;
 		}
 
@@ -65,22 +67,30 @@ namespace RegistryLib
 		{
 			readerData = AllMembers("SELECT * From Service");
 			DataTable table = CreateTable(readerData);
+			Closer(readerData);
+
 			return table;
 		}
 
 		public static void AddService(int id, int serviceId)
 		{
+			Closer(readerData);
+
 			EditMember("INSERT INTO Appointment_Service(appointment, service_id) " +
 						$"VALUES ({id},{serviceId})");
 		}
 		public static void RemoveService(int id, int serviceId)
 		{
+			Closer(readerData);
+
 			EditMember($"DELETE FROM Appointment_Service " +
 						$"WHERE appointment = {id} AND service_id = {serviceId}");
 		}
 
 		public static DataTable SearchAppointment(string text)
 		{
+			Closer(readerData);
+
 			text = text.Trim();
 			DataTable table = new DataTable();
 
@@ -88,6 +98,7 @@ namespace RegistryLib
 						$"WHERE name " +
 						$"LIKE '%{text}%'");
 			table = CreateTable(readerData);
+			Closer(readerData);
 
 			return table;
 		}

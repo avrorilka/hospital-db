@@ -51,7 +51,7 @@ namespace RegistryLib
             {
                 id = Convert.ToInt32(readerData[0]);
             }
-
+            Closer(readerData);
             return id;
         }
 

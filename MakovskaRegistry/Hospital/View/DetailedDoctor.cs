@@ -18,8 +18,9 @@ namespace Hospital.View
             try
             {
                 doctor = Doctor.DetailedDoctor(id);
-                if (labelTitle == null)
+                if (doctor.cabinet == null)
                 {
+                    Close();
                     throw new ArgumentNullException();
                 }
                 string cab = Convert.ToString(doctor.cabinet.cabinetNumber);
@@ -36,7 +37,7 @@ namespace Hospital.View
 
                 Model.Closer(Model.readerData);
             }
-            catch (NullReferenceException e)
+            catch
             {
                 MessageBox.Show("Такого значення не існує!", "Помилка", MessageBoxButtons.OK);
             }
@@ -97,7 +98,7 @@ namespace Hospital.View
 
                 if (end > start)
                 {
-                    Doctor doctor = new Doctor(id, first_name, surname, midlle_name, 
+                    Doctor doctor = new Doctor(id, first_name, surname, midlle_name,
                                                 cabinet, type, startTime, endTime);
 
                     Doctor.EditDoctor(doctor, oldCab);
